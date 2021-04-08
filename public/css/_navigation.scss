@@ -1,0 +1,451 @@
+//navigation/header styles
+////header
+#header {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    padding: 2em 5%;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+  }
+  
+  #header.sticky {
+    background: $near-white;
+    padding: 1em 5%;
+    top: 0;
+  }
+  
+  #header-wrapper {
+    background: $near-white;
+  }
+  
+  body:not(.home) {
+    #header {
+      background: $header-bkgd;
+    }
+  }
+  
+  .wrapper-logo {
+    display: block;
+    margin: auto;
+  }
+  
+  .main-menu {
+    margin: auto;
+  }
+  
+  #logo-sa {
+    width: 30px;
+  }
+  
+  header.grey-bg svg#logo-sa polygon.sa-top,
+  header.sticky svg#logo-sa polygon.sa-top,
+  .wrapper-logo.blue svg#logo-sa polygon.sa-top,
+  body:not(.home) .wrapper-logo svg#logo-sa polygon.sa-top {
+    fill: $blue;
+  }
+  
+  header.grey-bg svg#logo-sa polygon.sa-bottom,
+  header.sticky svg#logo-sa polygon.sa-bottom,
+  .wrapper-logo.blue svg#logo-sa polygon.sa-bottom,
+  body:not(.home) .wrapper-logo svg#logo-sa polygon.sa-bottom {
+    fill: $charcoal;
+  }
+  
+  .sub-main-nav {
+    border-bottom: 0;
+    margin: 0;
+    position: fixed;
+    right: 0;
+    height: 100%;
+    top: 0;
+    width: 50%;
+    background: #2c3e50;
+    font-size: 1.25em;
+    z-index: 25;
+    transition: all 0.5s cubic-bezier(0, 0.5, 0.17, 1);
+    clear: both;
+    padding: 30px 40px;
+    transform: translateX(100%);
+  }
+  
+  .sub-width {
+    transform: translateX(0);
+  }
+  
+  .list-theme-submenu {
+    margin-top: 50px;
+  }
+  
+  .list-theme-submenu li {
+    display: inline-block;
+    width: 30%;
+    height: auto;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .list-theme-submenu li:nth-child(3n) {
+    margin-right: 0;
+  }
+  
+  .effect-hover-smooth {
+    background-clip: padding-box;
+    background: none;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    border: 3px solid transparent;
+  }
+  
+  .effect-hover-smooth>figcaption,
+  .effect-hover-smooth>figcaption>a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .effect-hover-smooth>figcaption>a {
+    z-index: 1000;
+    text-indent: 200%;
+    white-space: nowrap;
+    font-size: 0;
+    opacity: 0;
+  }
+  
+  .effect-hover-smooth>figcaption p {
+    position: absolute;
+    bottom: 3px;
+    width: 100%;
+    margin: 0;
+    color: #37474f;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 10px;
+    text-transform: none;
+    opacity: 0;
+    transition: opacity 0.35s, transform 0.35s;
+    transform: translateY(50px);
+  }
+  
+  .effect-hover-smooth>figcaption::before,
+  .effect-hover-smooth>figcaption::after {
+    pointer-events: none;
+  }
+  
+  .effect-hover-smooth>figcaption p span.count-download {
+    color: #eb5155;
+    float: right;
+  }
+  
+  .effect-hover-smooth>figcaption p span.count-download i {
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 5px;
+  }
+  
+  .effect-hover-smooth:hover {
+    border: 3px solid #eb5256;
+    border-radius: 3px;
+    background: rgb(49, 31, 31);
+  }
+  
+  .effect-hover-smooth img {
+    transition: transform 0.35s;
+    backface-visibility: hidden;
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+  }
+  
+  .effect-hover-smooth:hover>img {
+    transform: translateY(-30px);
+    border-radius: 0;
+  }
+  
+  .effect-hover-smooth:hover p {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .sub-main-nav .main-menu {
+    text-align: left;
+  }
+  
+  .sub-main-nav .main-menu ul li {
+    margin-left: 0;
+    margin-right: 35px;
+    vertical-align: middle;
+  }
+  
+  .sub-main-nav .main-menu ul li a {
+    color: $white;
+  }
+  
+  .sub-main-nav .main-menu ul li:before {
+    background: $white;
+  }
+  
+  .sub-main-nav .main-menu ul li:first-child:after {
+    color: $white;
+  }
+  
+  ////menu
+  .main-menu {
+    display: block;
+    width: 100%;
+    text-align: right;
+  }
+  
+  .main-menu ul {
+    display: inline-block;
+    margin: auto;
+  }
+  
+  .main-menu ul li {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    margin: 0 1em;
+  }
+  
+  .main-menu ul li a {
+    color: $charcoal;
+    font-size: .8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .main-menu ul li:before {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: $charcoal;
+    bottom: 0;
+    transition: all 0.5s cubic-bezier(0, 0.5, 0.17, 1);
+    position: absolute;
+  }
+  
+  .main-menu ul li:hover:before {
+    width: 100%;
+  }
+  
+  .hire-link {
+    color: $white;
+    font-size: 1.2em;
+    font-weight: 700;
+    border-radius: 1.4em;
+    background-clip: padding-box;
+    background-color: $charcoal;
+    text-transform: uppercase; 
+    display: inline-block;
+    padding: .5em 1.5em;
+    letter-spacing: .02em;
+    margin-left: 2em;
+    vertical-align: middle;
+    transition: all 0.3s ease-in-out;
+    
+    &:hover,
+    &:active {
+      color: $near-white;
+      background-color: $charcoal-hover;
+    }
+    
+    &.footer-link {
+      background-color: $white;
+      color: $blue;
+      
+      
+      &:hover,
+      &:active {
+        color: $blue-hover;
+        background-color: $near-white;
+      }
+    }
+  }
+  
+  //off-canvas/mobile nav
+  .hamburglar {
+    transform: scale(1);
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    height: 40px;
+    -webkit-touch-callout: none;
+    user-select: none;
+    top: -13px;
+    cursor: pointer;
+    display: none;
+  }
+  
+  #top,
+  #bottom {
+    position: absolute;
+    display: block;
+    height: 4px;
+    width: 31px;
+    border-radius: 2px;
+    background: $charcoal;
+  }
+  
+  #top {
+    top: 18px;
+    left: 12px;
+  }
+  
+  #bottom {
+    top: 32px;
+    left: 12px;
+  }
+  
+  .hamburglar path,
+  .hamburglar line {
+    stroke: $charcoal;
+    stroke-linecap: round;
+  }
+  
+  #top,
+  #bottom {
+    transform-origin: 27px 2px;
+    transform: rotate(0deg);
+    transition: all 500ms cubic-bezier(0.8, -1.1, 0.5, 1.9);
+  }
+  
+  #circle {
+    stroke-dasharray: 1 100 32 300;
+    stroke-dashoffset: 101;
+    transition: all 750ms ease;
+  }
+  
+  .hamburglar.is-closed #circle {
+    stroke-dasharray: 1 100 190 300;
+    stroke-dashoffset: 1;
+  }
+  
+  .hamburglar.is-closed #top {
+    transform: translateX(-4.5px) rotate(-45deg);
+  }
+  
+  .hamburglar.is-closed #bottom {
+    transform: translateX(-4.5px) rotate(45deg);
+    top: 34px;
+  }
+  
+  //////////// menu/s
+  .oc-menu {
+    background: $near-white;
+    position: fixed;
+  }
+  
+  .oc-menu h3 {
+    color: $charcoal;
+    font-size: 1.4em;
+    padding: 0;
+    margin: 0;
+    font-weight: 300;
+    background: $off-white;
+  }
+  
+  .oc-menu a {
+    display: block;
+    color: $charcoal;
+    font-size: 1.2em;
+    font-weight: 300;
+  }
+  
+  .oc-menu a:hover,
+  .oc-menu a:active {
+    background: $blue;
+  }
+  
+  //Orientation-dependent styles for the content of the menu
+  .oc-menu-vertical {
+    width: 160px;
+    height: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .oc-menu-vertical ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+  }
+  
+  .oc-menu-vertical a {
+    border-bottom: 1px solid $off-white;
+    padding: 1rem;
+  }
+  
+  //Vertical menu that slides from the left or right
+  .oc-menu-left {
+    left: -160px;
+  }
+  
+  .oc-menu-right {
+    right: -160px;
+  }
+  
+  .oc-menu-left.oc-menu-open {
+    left: 0;
+  }
+  
+  .oc-menu-right.oc-menu-open {
+    right: 0;
+  }
+  
+  //Push classes applied to the body
+  .oc-menu-push {
+    overflow-x: hidden;
+    position: relative;
+    left: 0;
+  }
+  
+  .oc-menu-push-toright {
+    left: 160px;
+  }
+  
+  .oc-menu-push-toleft {
+    left: -160px;
+  }
+  
+  //Transitions
+  .oc-menu,
+  .oc-menu-push {
+    transition: all 0.7s cubic-bezier(0, 0.5, 0.17, 1);
+  }
+  
+  @media (max-width: 1170px) {
+    .main-menu ul li {
+      margin-left: 25px;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .sub-title-top-bar {
+      font-size: 20px;
+    }
+    .title-top-bar {
+      font-size: 30px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .hamburglar {
+      display: inline-block;
+      margin-left: 20px;
+    }
+    .main-menu ul {
+      display: none;
+    }
+  }
+  
+  .section-bg {
+    position: relative;
+    display: block;
+  }
