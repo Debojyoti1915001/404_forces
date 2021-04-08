@@ -100,12 +100,12 @@ module.exports.login_get = (req, res) => {
 }
 
 module.exports.signup_post = async (req, res) => {
-    const { name, email, password, confirmPwd, phoneNumber } = req.body
+    const { name, email, password, confirmPwd, phoneNumber ,scholar_id  } = req.body
     const nominee = null
     // console.log('in sign up route', req.body)
     if (password != confirmPwd) {
         req.flash('error_msg', 'Passwords do not match. Try again')
-        res.status(400).redirect('/user/login')
+        res.status(400).redirect('/')
         return
     }
 
@@ -124,7 +124,7 @@ module.exports.signup_post = async (req, res) => {
                 'success_msg',
                 'This email is already registered. Try logging in'
             )
-            return res.redirect('/user/login')
+            return res.redirect('/')
         }
         const short_id = generateShortId(name,phoneNumber);
         // console.log('Short ID generated is: ', short_id)
@@ -135,6 +135,7 @@ module.exports.signup_post = async (req, res) => {
             phoneNumber,
             short_id,
             nominee,
+            scholar_id
         })
         let saveUser = await user.save()
         //console.log(saveUser);
@@ -144,7 +145,7 @@ module.exports.signup_post = async (req, res) => {
         )
         signupMail(saveUser, req.hostname, req.protocol)
         //res.send(saveUser)
-        res.redirect('/user/login')
+        res.redirect('/')
     } catch (err) {
         const errors = handleErrors(err)
         console.log(errors)
@@ -157,7 +158,7 @@ module.exports.signup_post = async (req, res) => {
         )
         //res.json(errors);
         req.flash('error_msg', message)
-        res.status(400).redirect('/user/signup')
+        res.status(400).redirect('/')
     }
 }
 module.exports.emailVerify_get = async (req, res) => {
@@ -173,7 +174,7 @@ module.exports.emailVerify_get = async (req, res) => {
                     ' Your verify link had expired. We have sent you another verification link'
                 )
                 signupMail(expiredTokenUser, req.hostname, req.protocol)
-                return res.redirect('/user/login')
+                return res.redirect('/')
             }
             const user = await User.findOne({ _id: decoded.id })
             if (!user) {
@@ -194,14 +195,14 @@ module.exports.emailVerify_get = async (req, res) => {
                     )
                     //console.log('The user has been verified.')
                     //console.log('active', activeUser)
-                    res.redirect('/user/login')
+                    res.redirect('/')
                 }
             }
         })
     } catch (e) {
         console.log(e)
         //signupMail(user,req.hostname,req.protocol)
-        res.redirect('/user/login')
+        res.redirect('/')
     }
 }
 
@@ -228,7 +229,7 @@ module.exports.login_post = async (req, res) => {
                     'error_msg',
                     `${userExists.name}, we have already sent you a verify link please check your email`
                 )
-                res.redirect('/user/login')
+                res.redirect('/')
                 return
             }
             req.flash(
@@ -240,7 +241,7 @@ module.exports.login_post = async (req, res) => {
                 updatedAt: new Date(),
             })
             //console.log('userExists',userExists)
-            res.redirect('/user/login')
+            res.redirect('/')
             return
         }
 
@@ -255,7 +256,7 @@ module.exports.login_post = async (req, res) => {
     } catch (err) {
         req.flash('error_msg', 'Invalid Credentials')
         //console.log(err)
-        res.redirect('/user/login')
+        res.redirect('/')
     }
 }
 
@@ -414,7 +415,7 @@ module.exports.logout_get = async (req, res) => {
     // const cookie = req.cookies.jwt
     res.clearCookie('jwt')
     req.flash('success_msg', 'Successfully logged out')
-    res.redirect('/user/login')
+    res.redirect('/')
 }
 
 // module.exports.upload_get =async (req, res) => {
@@ -440,7 +441,7 @@ module.exports.forgotPassword = async (req, res) => {
     const user = await User.findOne({ email })
     if (!user) {
         req.flash('error_msg', 'No user found')
-        return res.redirect('/user/login')
+        return res.redirect('/')
     }
     //console.log(user)
     const userID = user._id
@@ -489,7 +490,7 @@ module.exports.resetPassword = async (req, res) => {
         })
         if (!user) {
             req.flash('error_msg', 'No user found')
-            return res.redirect('/user/login')
+            return res.redirect('/')
         }
         if (req.body.password !== req.body.cpassword) {
             req.flash('error_msg', 'Passwords dont match')

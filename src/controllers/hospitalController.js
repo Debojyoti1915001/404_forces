@@ -121,8 +121,9 @@ module.exports.signup_get = (req, res) => {
 
 module.exports.profile_get = async (req, res) => {
     res.locals.hospital = req.hospital
-    const activeusers=await User.find({'verified':true})
-    const inactiveusers=await User.find({'verified':false})
+    //to be added
+    const activeusers=await User.find({'verified':true,'institute':institute})
+    const inactiveusers=await User.find({'verified':false,'institute':institute})
      //console.log("hospital", req.hospital)
     const patients = await Relations.find({'isPermitted': true, 'hospitalId': req.hospital._id},"userId").populate('userId','name'); 
     
@@ -152,12 +153,12 @@ module.exports.emailVerify_get = async (req, res) => {
                     ' Your verify link had expired. We have sent you another verification link'
                 )
                 hospitalSignupMail(expiredTokenUser, req.hostname, req.protocol)
-                return res.redirect('/hospital/login')
+                return res.redirect('/')
             }
             const user = await Hospital.findOne({ _id: decoded.id })
             if (!user) {
                 //console.log('user not found')
-                res.redirect('/hospital/login')
+                res.redirect('/')
             } else {
                 const activeUser = await Hospital.findByIdAndUpdate(user._id, {
                     active: true,
@@ -165,7 +166,7 @@ module.exports.emailVerify_get = async (req, res) => {
                 if (!activeUser) {
                     // console.log('Error occured while verifying')
                     req.flash('error_msg', 'Error occured while verifying')
-                    res.redirect('/hospital/login')
+                    res.redirect('/')
                 } else {
                     req.flash(
                         'success_msg',
@@ -173,23 +174,23 @@ module.exports.emailVerify_get = async (req, res) => {
                     )
                     //console.log('The user has been verified.')
                     //console.log('active', activeUser)
-                    res.redirect('/hospital/login')
+                    res.redirect('/')
                 }
             }
         })
     } catch (e) {
         console.log(e)
         //signupMail(user,req.hostname,req.protocol)
-        res.redirect('/hospital/login')
+        res.redirect('/')
     }
 }
 
 module.exports.signup_post = async (req, res) => {
-    const { licenseNumber,  hospitalName, email, phoneNumber,password, confirmPwd  } = req.body
+    const {  hospitalName, email, phoneNumber,password, confirmPwd, institute  } = req.body
     //console.log("in sign up route",req.body);
     if (!(!password || !confirmPwd) && (password != confirmPwd)) {
         req.flash('error_msg', 'Passwords do not match. Try again')
-        res.status(400).redirect('/hospital/login')
+        res.status(400).redirect('/')
         return;
     }
 
@@ -208,10 +209,10 @@ module.exports.signup_post = async (req, res) => {
                 'success_msg',
                 'This email is already registered. Try logging in'
             )
-            return res.redirect('/hospital/login')
+            return res.redirect('/')
         }
 
-        const hospital = new Hospital({ licenseNumber,  hospitalName, email, phoneNumber,password  })
+        const hospital = new Hospital({ licenseNumber,  hospitalName, email, phoneNumber,password,institute })
         let saveUser = await hospital.save()
         //console.log(saveUser);
         req.flash(
@@ -220,7 +221,7 @@ module.exports.signup_post = async (req, res) => {
         )
         hospitalSignupMail(saveUser, req.hostname, req.protocol)
         //res.send(saveUser)
-        res.redirect('/hospital/login')
+        res.redirect('/')
     } catch (err) {
         const errors = handleErrors(err)
         console.log(errors)
@@ -231,7 +232,7 @@ module.exports.signup_post = async (req, res) => {
             'error_msg',
             message
         )
-        res.status(400).redirect('/hospital/signup')
+        res.status(400).redirect('/')
     }
 }
 module.exports.login_get = (req, res) => {
@@ -259,7 +260,7 @@ module.exports.login_post = async (req, res) => {
                 req.flash(
                     'error_msg',
                     `${userExists.hospitalName}, we have already sent you a verify link please check your email`)
-                res.redirect('/hospital/login')
+                res.redirect('/')
                 return
             }
             req.flash(
@@ -269,7 +270,7 @@ module.exports.login_post = async (req, res) => {
             hospitalSignupMail(userExists, req.hostname, req.protocol)
             await Hospital.findByIdAndUpdate(userExists._id, { updatedAt: new Date() });
             //console.log('userExists',userExists)
-            res.redirect('/hospital/login')
+            res.redirect('/')
             return
         }
        
@@ -283,7 +284,7 @@ module.exports.login_post = async (req, res) => {
     } catch (err) {
         req.flash('error_msg', 'Invalid Credentials')
         //console.log(err)
-        res.redirect('/hospital/login')
+        res.redirect('/')
     }
 }
 
@@ -292,7 +293,7 @@ module.exports.logout_get = async (req, res) => {
     
     res.clearCookie('hospital')
     req.flash('success_msg', 'Successfully logged out')
-    res.redirect('/hospital/login')
+    res.redirect('/')
 }
 
 module.exports.relation_post=async (req,res)=>{
