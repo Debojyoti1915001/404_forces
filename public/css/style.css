@@ -222,6 +222,8 @@ button {
   background-size: 100%;
   background-repeat: no-repeat;
   min-height: 90vh;
+  background: rgb(229,225,238);
+background: linear-gradient(90deg, rgba(229,225,238,1) 5%, rgba(223,253,255,1) 35%);
 }
 
 .header {
@@ -259,9 +261,9 @@ button {
   color: #cfcfcf !important;
   text-align: center;
   background-color: #141414 !important;
-  border-radius: 10px;
+  border-radius: 0px !important;
   height: 45px;
-  border: 1px;
+  border: 1px solid #1f1f1f;
 }
 .signup-bt {
   width: 100%;
@@ -269,10 +271,11 @@ button {
   font-size: auto;
   color: #141414 !important;
   text-align: center;
-  background-color: #eeeeee !important;
-  border-radius: 10px;
+  background-color: transparent !important;
+  border-radius: 0px !important;
   height: 45px;
-  border: 1px;
+  border: 1px solid #1f1f1f;
+  
 }
 .sinup_text {
   width: 100%;
