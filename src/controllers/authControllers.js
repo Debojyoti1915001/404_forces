@@ -102,7 +102,7 @@ module.exports.login_get = (req, res) => {
 module.exports.signup_post = async (req, res) => {
     const { name, email, password, confirmPwd, phoneNumber ,scholar_id  } = req.body
     const nominee = null
-    // console.log('in sign up route', req.body)
+     console.log('in sign up route', req.body)
     if (password != confirmPwd) {
         req.flash('error_msg', 'Passwords do not match. Try again')
         res.status(400).redirect('/')
