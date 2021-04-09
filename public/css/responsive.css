@@ -317,7 +317,7 @@ padding: 126px 40px;
 width: 55%;
 }
 
-.login-bt { display: none;}
+
 .sinup_text { display: none;}
 .search { display: none;}
 .navbar { padding-top: 8px; }
@@ -447,7 +447,7 @@ ul.link li {
 .social_icon li { padding-left: 0px; }
 .social_icon { width: 100%; float: left;}
 .map { margin-top: 30px;}
-.login-bt { display: none;}
+
 .sinup_text { display: none;}
 .search { display: none;}
 .blog_section { padding-top: 0px;}
