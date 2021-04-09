@@ -1,11 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arogya</title>
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Covinfo</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">	
+<!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="../public/css/bootstrap.min.css">
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="../public/css/style.css">
+<!-- Responsive-->
+<link rel="stylesheet" href="../public/css/responsive.css">
+<!-- fevicon -->
+<link rel="icon" href="images/fevicon.png" type="image/gif" />
+<!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="../public/css/jquery.mCustomScrollbar.min.css">
+<!-- Tweaks for older IEs-->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<!-- owl stylesheets --> 
+<link rel="stylesheet" href="../public/css/owl.carousel.min.css">
+<link rel="stylesheet" href="../public/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
 </head>
 <body>
-    
+	<!--header section start -->
+	<div class="header_section">
+		<div class="container">
+			<div class="row" >
+				<div class="col-sm-2">
+					<div class="logo"><a href="index.html"><img src="../public/img/CovinfoLogo.svg"></a></div>
+				</div>
+				<div class="col-sm-6" >
+					<div class="menu-area">
+                    <nav class="navbar navbar-expand-lg " >
+                         <!--<a class="navbar-brand" href="#">Menu</a>-->
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                          <!--<ul class="navbar-nav mr-auto">
+                               <li class="nav-item active">
+                                <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a> </li>
+                               <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a></li>
+                               <li class="nav-item">
+                                <a class="nav-link" href="client.html">Client</a></li>
+                               <li class="#" href="#">
+      	                        <a class="nav-link" href="blog.html">Blog</a></li>
+                               <li class="nav-item" href="#">
+      	                        <a class="nav-link" href="contact.html">Contact Us</a></li>
+                            </ul>-->
+                        </div>
+                    </nav>
+          </div>
+				</div>
+				<div class="col-sm-4">
+            <ul class="top_button_section">
+               <li><a class="login-bt active" href="#myModalAdmin" class="trigger-btn" data-toggle="modal">Login-Admin</a></li>
+               <li><a class="signup-bt" href="#myModalAdminSignup" class="trigger-btn" data-toggle="modal">Signup-Admin</a></li>
+               <li><a class="login-bt active" href="#myModalStudent" class="trigger-btn" data-toggle="modal">Login-Student</a></li>
+               <li><a class="signup-bt" href="#myModalStudentSignup" class="trigger-btn" data-toggle="modal">SignupStudent</a></li>
+               <li class="search"><a href="#"><img src="images/search-icon.png"  /></a></li>
+            </ul>
+					</div>
+			</div>
+
+    <div class="row">
+      <div class="banner_section layout_padding">
+      <section>
+         <div id="main_slider" class="section carousel slide banner-main" data-ride="carousel">
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                    <div class="container">
+                     <div class="row marginii">
+                        <div class="col-md-5 col-sm-12">
+                           <div class="carousel-sporrt_text ">
+                              <h1 class="banner_taital">-- Cov<span style="color: rgb(156, 4, 4);">info</span></h1>
+                    <p class="lorem_text">Mask up, Sanitize and Stay Vaccinated</p>
+                    <!--<div class="ads_bt"><a href="#">Ads Now</a></div>
+                    <div class="contact_bt"><a href="#">Contact Us</a></div>-->
+                           </div>
+                        </div>
+                        <div class="col-md-7 col-sm-12">
+                           <div class="img-box">
+                              <figure><img src="" style="max-width: 100%;"/></figure>
+                           </div>
+                        </div>
+                    </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+        
+      </section>
+      <p style="text-align: right" class="align-bottom">Github</p>
+    </div>
+    </div>
+
+		</div>
+        <!--header section end -->
+        
+		</div>
+	</div>
+
+   <div id="myModalAdmin" class="modal fade">
+      <div class="modal-dialog modal-login">
+         <div class="modal-content">
+            <div class="modal-header">				
+               <h4 class="modal-title">Admin Login</h4>
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body-1">
+               <form action="/examples/actions/confirmation.php" method="post">
+                  <div class="form-group">
+                     <i class="fa fa-user"></i>
+                     <input type="text" class="form-control" placeholder="Username" required="required">
+                  </div>
+                  <div class="form-group">
+                     <i class="fa fa-lock"></i>
+                     <input type="password" class="form-control" placeholder="Password" required="required">					
+                  </div>
+                  <div class="form-group">
+                     <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">
+                  </div>
+               </form>
+            </div>
+            <div class="modal-footer">
+               <a href="#">Forgot Password?</a>
+            </div>
+         </div>
+      </div>
+   </div>     
+   <div id="myModalAdminSignup" class="modal fade">
+      <div class="modal-dialog modal-signup">
+         <div class="modal-content">
+         <div class="signup-form">
+            <form action="" method="post">
+              <h2>Admin SignUp</h2>
+                <div class="form-group">
+                 <div class="row">
+                    <div class="col"><input type="text" class="form-control" name="first_name" placeholder="Institution Name" required="required"></div>
+                  \
+                 </div>        	
+                </div>
+                <div class="form-group">
+                   <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+                </div>
+              <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                </div>
+              <div class="form-group">
+                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+                </div>        
+                <div class="form-group">
+                 <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+              </div>
+              <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
+                </div>
+                <div class="text-center">Already have an account? <a href="#">Sign in</a></div>
+            </form>
+          
+        </div>
+      </div>
+      </div>
+   </div>     
+   <div id="myModalStudentSignup" class="modal fade">
+      <div class="modal-dialog modal-signup">
+         <div class="modal-content">
+         <div class="signup-form">
+            <form action="" method="post">
+              <h2>Student SignUp</h2>
+                <div class="form-group">
+                 <div class="row">
+                    <div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
+                    <div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
+                 </div>        	
+                </div>
+                <div class="form-group">
+                   <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+                </div>
+              <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                </div>
+                <div class="form-group">
+                  <input type="number" class="form-control" name="scholarId" placeholder="scholarId" required="required">
+              </div>  
+              <div class="form-group">
+                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+                </div>        
+                <div class="form-group">
+                 <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+              </div>
+              <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
+                </div>
+                <div class="text-center">Already have an account? <a href="#">Sign in</a></div>
+            </form>
+          
+        </div>
+      </div>
+      </div>
+   </div>     
+   <div id="myModalStudent" class="modal fade">
+      <div class="modal-dialog modal-login">
+         <div class="modal-content">
+            <div class="modal-header">				
+               <h4 class="modal-title">Student Login</h4>
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body-1">
+               <form action="/examples/actions/confirmation.php" method="post">
+                  <div class="form-group">
+                     <i class="fa fa-user"></i>
+                     <input type="text" class="form-control" placeholder="Username" required="required">
+                  </div>
+                  <div class="form-group">
+                     <i class="fa fa-lock"></i>
+                     <input type="password" class="form-control" placeholder="Password" required="required">					
+                  </div>
+                  <div class="form-group">
+                     <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">
+                  </div>
+               </form>
+            </div>
+            <div class="modal-footer">
+               <a href="#">Forgot Password?</a>
+            </div>
+         </div>
+      </div>
+   </div>     
+	<!--footer section start -->
+	<div class="footer_section layout_padding">
+		<div class="container">
+			<div class="row">
+			    <div class="col-sm-3">
+				    <div class="footer_contact">Contact Us</div>
+			    </div>
+			    <div class="col-sm-3">
+				    <div class="location_text"><img src="images/map-icon.png"><span style="padding-left: 10px;">Locations</span></div>
+			    </div>
+			    <div class="col-sm-3">
+			    	<div class="location_text"><img src="images/call-icon.png"><span style="padding-left: 10px;">Locations</span></div>
+			    </div>
+			    <div class="col-sm-3">
+			    	<div class="location_text"><img src="images/mail-icon.png"><span style="padding-left: 10px;">Locations</span></div>
+			    </div>
+		    </div>
+		    <div class="enput_bt">
+		    	<div class="row">
+		    		<div class="col-md-6">
+		    			<div class="input_main">
+                       <div class="container">
+                          <form action="/action_page.php">
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="NAME" name="Name">
+                            </div>
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="EMAIL" name="Email">
+                            </div>
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="PHONE NUMBER" name="Email">
+                            </div>
+                            <form action="/action_page.php">
+                                <div class="form-group">
+                                  <textarea class="massage-bt" placeholder="MASSAGE" rows="5" id="comment" name="text"></textarea>
+                                </div>
+                            </form>
+                          </form>
+                       </div> 
+                       <div class="send_bt_main">
+                       	<div class="left">
+                       		<div class="send_bt"><a href="#">SEND</a></div>
+                       	</div>
+                       	<div class="right">
+                       		<div class="social_icon">
+                       			<ul>
+                       				<li><a href="#"><img src="images/fb-icon.png"></a></li>
+                       				<li><a href="#"><img src="images/twitter-icon.png"></a></li>
+                       				<li><a href="#"><img src="images/in-icon.png"></a></li>
+                       				<li><a href="#"><img src="images/instagram-icon.png"></a></li>
+                       			</ul>
+                       		</div>
+                       	</div>
+                       </div>
+                    </div>
+		    		</div>
+		    		<div class="col-md-6">
+		    			<div class="map_section">
+		                    <div class="row">
+			            <div class="col-sm-12">
+				            <div class="full map_section">
+                               <div id="map"></div>
+                            </div>
+			            </div>
+		            </div>
+	                 </div>
+		    			<h1 class="newsletter_text">Newsletter</h1>
+		    			<div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="ENTER YOUR MAIL" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                       <div class="input-group-append">
+                       <span class="input-group-text" id="basic-addon2">SUBSCRIBE</span>
+                       </div>
+                       </div>
+		    		</div>
+		    	</div>
+		    </div>
+		    <div class="copyright_section">
+		    	<p class="copyright_text">Copyright 2019 All Right Reserved By.<a href="https://html.design"> Free  html Templates</p>
+		    </div>
+		</div>
+	</div>
+	<!--footer section end -->
+
+      <!-- Javascript files-->
+      <script src="../public/js/jquery.min.js"></script>
+      <script src="../public/js/popper.min.js"></script>
+      <script src="../public/js/bootstrap.bundle.min.js"></script>
+      <script src="../public/js/jquery-3.0.0.min.js"></script>
+      <script src="../public/js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="../public/js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="../public/js/custom.js"></script>
+      <!-- javascript --> 
+      <script src="../public/js/owl.carousel.js"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      <script>
+         $(document).ready(function(){
+         $(".fancybox").fancybox({
+         openEffect: "none",
+         closeEffect: "none"
+         });
+         </script>	
+
+
+         <script>
+      // This example adds a marker to indicate the position of Bondi Beach in Sydney,
+      // Australia.
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: {lat: 40.645037, lng: -73.880224},
+          });
+
+        var image = 'images/location_point.png';
+          var beachMarker = new google.maps.Marker({
+             position: {lat: 40.645037, lng: -73.880224},
+             map: map,
+             icon: image
+          });
+        }
+        </script>
+        <!-- google map js -->
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+        <!-- end google map js -->
 </body>
 </html>

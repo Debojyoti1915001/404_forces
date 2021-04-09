@@ -32,7 +32,7 @@ html {
 body {
      color: #707070;
      font-size: 14px;
-     font-family: 'opensans';
+     font-family: 'Open Sans', sans-serif;
      line-height: 1.80857;
      font-weight: normal;
      overflow-x: hidden;
@@ -743,3 +743,95 @@ button {
 .signup-form form a:hover {
 	text-decoration: underline;
 }  
+
+
+/
+  .profile-card2{
+    width:50px !important;
+    display: flex;
+    flex-direction: column;
+    margin: 5px !important;
+    border: 1px solid rgb(29, 29, 29) i !important;
+    border-bottom-left-radius:50px ;
+    border-bottom-right-radius:50px ;
+    transition: all 150ms ease-in-out;
+  }
+  .profile-card2:hover{
+    border: 1px solid blue;
+    box-shadow: 0 0 10px 1px;
+  }
+  .card-header2{
+    align-self: center;
+    text-align: center;
+    background: #2196F3;
+    color: #FAFAFA;
+    border-left: 66px solid #2196F3;
+    border-right: 65px solid #2196F3;
+    
+    transition: all 150ms ease-in-out;
+    
+  }
+  .card-header2:hover{
+    background: #0960a5;
+    border-left: 66px solid #0960a5;
+    border-right: 65px solid #0960a5;
+  }
+  .image2{
+    
+    height: 150px;
+    width: 150px;
+    align-self: center;
+    border-radius: 50%;
+    transition: all 150ms ease-in-out;
+    z-index: 100;
+  }
+  .image2:hover{
+    border-radius: 10%;
+  }
+  .card-info2{
+    padding: 1em;
+  }
+  .bottom2 h2{
+    text-align:center;
+  }
+  .card-footer2{
+    width: 310px;
+    border-top: 1px solid gray;
+    align-self: center;
+  }
+  .card-footer2 ul{
+    display:flex;
+    justify-content: flex-start;;
+  }
+  .card-footer2 ul li:last-child{
+    margin-left: 85px;
+  }
+  
+  /*COMPARE CSS VS FLEXBOX*/
+  .compare{
+    display:flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+    margin-left: -6%;
+  }
+  
+  /*Align cards so normal css an flexbox display above cards*/
+  .profile-card, .profile-card2{
+    margin-top: 100px;
+  }
+  /*.profile-card{
+    margin-left: -10%;
+  }*/
+  .version1, .version2{
+    position:relative;
+    left: 14rem;
+    color: #BDBDBD;
+    transition: color 0.4s ease-in-out;
+  }
+  /*Misc hover animations for titles*/
+  .version1:hover, .version2:hover{
+    color: #37474F;
+    max-height:100px;
+  }
+
+  
