@@ -12,9 +12,10 @@ const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         // console.log("in multer",file)
         if(file.fieldname!=='profilePic'){
-        const {name}=req.body 
+        const name="student"
         // console.log('disease name',name)
         //console.log('field',file.fieldname)
+        
         const dname= name.toLowerCase()
         const userEmail = req.user.email.toLowerCase()
         var dir = `./public/uploads/${userEmail}/${dname}/${file.fieldname}`
@@ -99,9 +100,9 @@ router.post(
     '/profile/upload',
     requireAuth,
     upload.fields([{
-        name: 'medicine', maxCount: 3
+        name: 'medicine', maxCount: 1
       }, {
-        name: 'document', maxCount: 3
+        name: 'document', maxCount: 1
       }]),  
     authController.upload_post
 )

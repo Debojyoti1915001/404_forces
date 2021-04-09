@@ -102,7 +102,7 @@ module.exports.login_get = (req, res) => {
 module.exports.signup_post = async (req, res) => {
     const { name, email, password, confirmPwd, phoneNumber ,scholar_id  } = req.body
     const nominee = null
-    // console.log('in sign up route', req.body)
+     console.log('in sign up route', req.body)
     if (password != confirmPwd) {
         req.flash('error_msg', 'Passwords do not match. Try again')
         res.status(400).redirect('/')
@@ -261,13 +261,13 @@ module.exports.login_post = async (req, res) => {
 }
 
 module.exports.upload_post = async (req, res) => {
-    //console.log("in uploads",req.body)
+    console.log("in uploads",req.body)
 
     try {
-        let { name } = req.body
-
+        let  name  = "student"
+        //console.log(name)
         const files = req.files
-        dname = name.toLowerCase()
+        const dname = name.toLowerCase()
         const obj = JSON.parse(JSON.stringify(files))
         // console.log('files', obj)
         //console.log(obj.document[0].filename)
