@@ -261,13 +261,13 @@ module.exports.login_post = async (req, res) => {
 }
 
 module.exports.upload_post = async (req, res) => {
-    //console.log("in uploads",req.body)
+    console.log("in uploads",req.body)
 
     try {
-        let { name } = req.body
-
+        let  name  = "student"
+        //console.log(name)
         const files = req.files
-        dname = name.toLowerCase()
+        const dname = name.toLowerCase()
         const obj = JSON.parse(JSON.stringify(files))
         // console.log('files', obj)
         //console.log(obj.document[0].filename)

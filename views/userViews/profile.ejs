@@ -81,16 +81,17 @@
                 <h3><%=user.scholar_id%></h3>
               </div>
             </div>
-              <form class="bottom2">
+              <form class="bottom2" method="POST" enctype="multipart/form-data">
                 <div class="CollegeID">
                     <label class="form-label" for="customFile">Upload College ID</label>
-                     <input type="file" class="form-control" id="customFile" />
+                     <input type="file" name="document" class="form-control" id="customFile" />
                 </div>
                 <div class="VaccineCertificate">
                   <label class="form-label" for="customFile">Upload Vaccine Certificate</label>
-                   <input type="file" class="form-control" id="customFile" />
-
+                   <input type="file" name="medicine" class="form-control" id="customFile" />
                 </div>
+				<span><button class="login-bt active" formaction="profile/upload" value="upload">SAVE</button></span>
+			</form>
                 <fieldset class="form-group">
                   <div class="row">
                     <legend class="col-form-label col-sm-2 pt-0">Covid Vaccinated</legend>
@@ -120,7 +121,7 @@
 					<%}%>
 				</div>
                   </div>
-              </form><!--bottom of card-->
+              <!--bottom of card-->
               <div class="card-footer2">
                 
               </div>
