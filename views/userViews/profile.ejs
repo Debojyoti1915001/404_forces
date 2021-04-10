@@ -73,6 +73,20 @@
   <!--starting-->
   <div class="profile-card2">
               <h1>Student Dashboard</h1>
+              <div class="status" style="display: inline-flex;">
+                <label style="color: #1f1f1f;">Status</label>
+              <div class="status-pending" style="padding-left: 60px;">
+              <% if(user.verified==='0'){%>
+                Not Vaccinated
+              <%}%>
+              <% if(user.verified==='1'){%>
+                Pending  
+              <%}%>
+              <% if(user.verified==='2'){%>
+                Verified 
+              <%}%>
+              </div>
+              </div>
               <div class="card-header2">
               
  
@@ -95,10 +109,10 @@
 				<span><button class="upload-bt active" formaction="profile/upload" value="upload">Upload</button></span>
 			</form>
       <form action="/user/data/<%=user._id%>" method="POST">
-                <fieldset class="form-group">
-                  <div class="row">
-                    <legend class="col-form-label col-sm-2 pt-0">Covid Vaccinated</legend>
-                    <div class="col-sm-10">
+                <fieldset class="form-group" >
+                  <div class="row" >
+                    <legend class="col-form-label col-sm-5 pt-0">Covid Vaccinated</legend>
+                    <div class="col-sm-7">
                       <div class="form-check">
                         <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
                         <label class="form-check-label" for="gridRadios1">
@@ -110,29 +124,11 @@
                         <label class="form-check-label" for="gridRadios2">
                           NO
                         </label>
-                        <span><button class="upload-bt active" formaction="/user/data/<%=user._id%>">Update</button></span>
                       </div>
                     </div>
                   </div>
+                  <span><button class="upload-bt active" formaction="/user/data/<%=user._id%>">Save</button></span>
                 </form>
-                  <div class="status" style="display: inline-flex;">
-                    <label>Status</label>
-                  <div class="status-pending" style="padding-left: 155px;">
-					        <% if(user.verified==='0'){%>
-					          Not Vaccinated
-					        <%}%>
-					        <% if(user.verified==='1'){%>
-					          Pending  
-					        <%}%>
-                  <% if(user.verified==='2'){%>
-					          Verified 
-					        <%}%>
-				          </div>
-                  </div>
-              <!--bottom of card-->
-              <div class="card-footer2">
-                
-              </div>
             </div>
 <!--end of profile-card-->
 </body>
