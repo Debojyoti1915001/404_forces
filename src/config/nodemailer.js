@@ -3,8 +3,8 @@ require('dotenv').config()
 const jwt = require('jsonwebtoken')
 
 const signupMail = (data, host, protocol) => {
-    const maxAge = 3 * 60 * 60
-
+    const maxAge = 5 * 60 * 60
+    //console.log(data)
     const TOKEN = jwt.sign({ id: data._id }, process.env.JWT_SECRET, {
         expiresIn: maxAge,
     })
