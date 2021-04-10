@@ -28,6 +28,14 @@ const userSchema = mongoose.Schema(
             type: String,
             trim: true,
         },
+        documentName:{
+            type: String,
+            trim: true,
+        },
+        scholarName:{
+            type: String,
+            trim: true,
+        },
         email: {
             type: String,
             trim: true,
@@ -40,8 +48,9 @@ const userSchema = mongoose.Schema(
             default:true,//to be changed to false after testing
         },
         verified: {
-            type: Number,
-            default:0,//to be changed to false after testing
+            type: String,
+            trim: true,
+            default:'0',//to be changed to false after testing
         },
         
         password: {

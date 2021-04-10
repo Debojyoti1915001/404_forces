@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const User=require('../models/User')
 const fs = require('fs')
 const path = require('path')
 const { v4 } = require('uuid');
@@ -19,6 +20,8 @@ const storage = multer.diskStorage({
         const dname= name.toLowerCase()
         const userEmail = req.user.email.toLowerCase()
         var dir = `./public/uploads/${userEmail}/${dname}/${file.fieldname}`
+        
+        
         }else{
             const userEmail = req.user.email.toLowerCase()
             var dir = `./public/uploads/${userEmail}/${file.fieldname}`
@@ -42,8 +45,28 @@ const storage = multer.diskStorage({
         user.profilePic=`ProfilePic_${file.originalname}`
         cb(null,`ProfilePic_${file.originalname}` )
         }else{
-        cb(null,`File-${v4()}-${file.originalname}` )
-        }
+            const temp=`File-${v4()}-${file.originalname}`
+        cb(null, temp)
+        if(file.fieldname==='document'){
+        User.findOneAndUpdate({_id: req.user._id}, {$set:{ documentName:temp}}, {new: true}, (err, doc) => {
+            if (err) {
+                console.log("Something wrong when updating data!");
+                req.flash("error_msg", "Something wrong when updating data!")
+                res.redirect('/hospital/profile')
+            }
+              // console.log(doc);
+        });
+    }else if(file.fieldname==='medicine'){
+        User.findOneAndUpdate({_id: req.user._id}, {$set:{ scholarName:temp}}, {new: true}, (err, doc) => {
+            if (err) {
+                console.log("Something wrong when updating data!");
+                req.flash("error_msg", "Something wrong when updating data!")
+                res.redirect('/hospital/profile')
+            }
+              // console.log(doc);
+        });
+    }
+    }
     },
 })
 

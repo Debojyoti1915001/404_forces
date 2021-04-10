@@ -100,7 +100,7 @@ module.exports.login_get = (req, res) => {
 }
 
 module.exports.signup_post = async (req, res) => {
-    const { name, email, password, confirmPwd, phoneNumber ,scholar_id  } = req.body
+    const { name, email, password, confirmPwd, phoneNumber ,scholar_id,institute  } = req.body
     const nominee = null
      console.log('in sign up route', req.body)
     if (password != confirmPwd) {
@@ -135,7 +135,8 @@ module.exports.signup_post = async (req, res) => {
             phoneNumber,
             short_id,
             nominee,
-            scholar_id
+            scholar_id,
+            institute
         })
         let saveUser = await user.save()
         //console.log(saveUser);
@@ -614,8 +615,10 @@ module.exports.data_post= async (req, res) => {
     if(req.body.gridRadios==='option1'){
         User.findOneAndUpdate(
             { _id: id },
-            { $set: { verified: 1 } },
-            { new: true },
+            { $set: { verified: '1' } },
+            {
+                returnNewDocument: true
+            },
             (err, doc) => {
                 if (err) {
                     console.log('Something wrong when updating data!')
@@ -626,10 +629,10 @@ module.exports.data_post= async (req, res) => {
                 // console.log(doc)
             }
         )
-    }else {
+    }else if(req.body.gridRadios==='option2'){
         User.findOneAndUpdate(
             { _id: id },
-            { $set: { verified: 0 } },
+            { $set: { verified: '0' } },
             { new: true },
             (err, doc) => {
                 if (err) {

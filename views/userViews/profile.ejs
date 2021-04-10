@@ -80,6 +80,7 @@
               <div class="card-info2">
                 <h2><%=user.name%></h2>
                 <h3><%=user.scholar_id%></h3>
+                <h5><%=user.institute%></h5>
               </div>
             </div>
               <form class="bottom2" method="POST" enctype="multipart/form-data">
@@ -117,13 +118,13 @@
                   <div class="status" style="display: inline-flex;">
                     <label>Status</label>
                   <div class="status-pending" style="padding-left: 155px;">
-					        <% if(user.verified===0){%>
-					          Pending 
+					        <% if(user.verified==='0'){%>
+					          Not Vaccinated
 					        <%}%>
-					        <% if(user.verified===1){%>
-					          Applied 
+					        <% if(user.verified==='1'){%>
+					          Pending  
 					        <%}%>
-                  <% if(user.verified===2){%>
+                  <% if(user.verified==='2'){%>
 					          Verified 
 					        <%}%>
 				          </div>

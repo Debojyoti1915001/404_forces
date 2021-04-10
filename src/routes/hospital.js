@@ -71,8 +71,9 @@ router.post('/login', hospitalController.login_post)
 router.get('/verifyRelation/:id',hospitalController.relationVerify_get)
 router.get('/verifyNominee/:id',hospitalController.nomineeVerify_get) 
 router.post('/verify:id',hospitalController.verify_post)
+router.post('/update/:id',requireAuth,hospitalController.update)
 router.get('/profile', requireAuth, hospitalController.profile_get)
-
+router.get('/download/:type/:id',requireAuth,hospitalController.download)
 router.get('/patient',requireAuth,hospitalController.patient_get)
 router.post(
     '/profile/picupload',
