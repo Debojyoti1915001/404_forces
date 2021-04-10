@@ -122,15 +122,21 @@ module.exports.signup_get = (req, res) => {
 module.exports.profile_get = async (req, res) => {
     res.locals.hospital = req.hospital
     //to be added
-    const activeusers=await User.find({'verified':true,'institute':institute})
-    const inactiveusers=await User.find({'verified':false,'institute':institute})
+    //console.log(req.hospital.institute)
+    const activeusers=await User.find({'verified':2,'institute':req.hospital.institute})
+    const tobevusers=await User.find({'verified':1,'institute':req.hospital.institute})
+    const inactiveusers=await User.find({'verified':0,'institute':req.hospital.institute})
      //console.log("hospital", req.hospital)
-    const patients = await Relations.find({'isPermitted': true, 'hospitalId': req.hospital._id},"userId").populate('userId','name'); 
+    //console.log('0::',activeusers)
+    //console.log('1::',inactiveusers)
+    
+     const patients = await Relations.find({'isPermitted': true, 'hospitalId': req.hospital._id},"userId").populate('userId','name'); 
     
     // console.log("patientssssss",patients)
     res.render("./hospitalViews/profile",
     {path:'/hospital/profile',
     activeusers,
+    tobevusers,
     inactiveusers,
     patients:patients, 
     foundUser:null,
@@ -211,10 +217,10 @@ module.exports.signup_post = async (req, res) => {
             )
             return res.redirect('/')
         }
-
+        const licenseNumber="01"
         const hospital = new Hospital({ licenseNumber,  hospitalName, email, phoneNumber,password,institute })
         let saveUser = await hospital.save()
-        //console.log(saveUser);
+        console.log(saveUser);
         req.flash(
             'success_msg',
             'Registration successful. Check your inbox to verify your email'
@@ -594,7 +600,7 @@ module.exports.picupload_post=async(req,res)=>{
             req.flash("error_msg", "Something wrong when updating data!")
             res.redirect('/hospital/profile')
         }
-        
+        res.redirect('/hospital/profile')    
         // console.log(doc);
     });
     res.redirect('/hospital/profile')
@@ -607,9 +613,57 @@ module.exports.verify_post=async(req,res)=>{
             req.flash("error_msg", "Something wrong when updating data!")
             res.redirect('/hospital/profile')
         }
-        
+        res.redirect('/hospital/profile')   
         // console.log(doc);
     });
     res.redirect('/hospital/profile')
 
+}
+module.exports.download = async (req, res) => { 
+    const id=req.params.id
+    console.log('in heraaaaaaaaaaaaaa',id)
+    
+    const user=await User.findOne({_id:id})
+    console.log(user)
+    const scholarName=user.scholarName
+    const documentName=user.documentName
+    const type = req.params.type //to get the type wheather 'medical/documnet'
+    var reqd=null
+    if(type==='document'){
+        reqd=documentName
+    }else if(type==='medicine'){
+        reqd=scholarName
+    }
+    let reqPath = path.join(
+        __dirname,
+        `../../public/uploads/${user.email}/student/${type}/${reqd}`
+    )
+    //console.log(reqPath)
+    res.download(reqPath, (error) => {
+        if (error) {
+            req.flash('error_msg', 'error while downloading')
+            console.trace(error)
+            return res.redirect('/hospital/profile')
+        }
+        res.end()
+    })
+}
+module.exports.update= async (req, res) => {
+    const id=req.params.id
+    User.findOneAndUpdate(
+        { _id: id },
+        { $set: { verified: '2' } },
+        {
+            returnNewDocument: true
+        },
+        (err, doc) => {
+            if (err) {
+                console.log('Something wrong when updating data!')
+                req.flash('error_msg', 'Something wrong when updating data!')
+                res.redirect('/hospital/profile')
+            }
+            res.redirect('/hospital/profile')   
+            // console.log(doc)
+        }
+    )
 }

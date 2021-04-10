@@ -1,451 +1,164 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-    <script src="https://use.fontawesome.com/67912d8e88.js"></script>
-    <link rel="stylesheet" href="../css/NavBar.css">
-    <link rel="stylesheet" href="../css/hospitalProfile.css">
-    <link rel="stylesheet" href="../css/modal.css">
-	<title>Profile Page</title>
-</head>
-<body>
-	<%- include('../partials/navbar'); %>
-
-	<link rel="stylesheet" href="/css/flash-message.css">
-	<div id="flash-message">
-		<% if (custom_flash) { %>
-		<div class="alert alert-success alignment"><%= custom_flash %><span class="close">&times;</span></div>
-		
-		<% } else { %> <% } %>
-	</div>
-	
-	<script src="/js/flash-message.js"></script>
-
-	<!--Profile Part-->
-
-<div class="desktop-view">
-	<div class="container-fluid" >	
-		<div class="row">
-			<div class="col-sm-12"><%- include('../partials/message'); %></div>
-			<div class="col-lg-2 col-sm-4 col-12 order-3 order-sm-1" id="pSec1">
-				<div id="leftPanel"> 
-					<div class="lists">
-						<a href="/hospital/profile">Profile</a> 
-						<img src="../img/profile.png" class="Icons profile-icon">
-					</div>
-					<div class="lists">
-						<a href="#">Appointments</a>
-						<img src="../img/appointment.png" class="Icons">
-					</div>
-					<div class="lists">
-						<a href="#">Progress Report</a>
-						<img src="../img/progress.png" class="Icons">
-					</div>
-					<div class="lists">
-						<a href="#">Message</a>
-						<img src="../img/message.png" class="Icons">
-					</div>
-					<div class=" Doctor-list">
-						<div id="mySidenavTab" class="sidenav">
-							<div id="Dr"><p class="sidenavHeader">Patients<a href="javascript:void(0)" class="closebtn" onclick="closeNavtab()"><i class="fa fa-angle-left sideNav " aria-hidden="true"></i></a></p></div>
-							<div>
-								<form method="POST" action="/hospital/search">
-									<input type="text" placeholder="Enter patient unique ID to search" name="short_id"
-									class="mobile-preview shadow floating-animate" id="id_search">
-								<button id="id_search_button">Search</button>
-								</form>
-							   
-							</div>
-					
-		     
-								<% if (foundUser) { %>
-									<div>
-										<div id="patientId2">
-										<div id="patientImage2"></div>
-										<div id="patientName1">
-										<p><%= foundUser.name %></p>
-										</div>
-										</div>
-										<% if (access.length == 0) { %>
-											<a class="btn btn-danger" href="/hospital/relation/<%= foundUser.short_id %>"" role="button" id="search_button2">Request Patient</a>	
-											<% if (foundUser.nominee) { %>
-												<br>
-												<br>
-												
-												
-												<a class="btn btn-warning" href="/hospital/nominee/<%= foundUser.short_id %>"" role="button" id="search_button2">Request Nominee</a>
-									
-												<% } %>
-										<% } else { %>
-											<a class="btn btn-primary" href="/hospital/patient?id=<%= foundUser._id %>"" role="button" id="search_button2">View details</a>
-										    
-											<% } %>
-											<div id="separator"></div>
-										
-									</div>
-								<% } %>
-								
-
-
-							<ul id="patientList">
-								<% for(var d of patients) { %>
-									<div id="patientId">
-										<div id="patientImage"></div>
-										<div id="patientName">
-										<a  href="/hospital/patient?id=<%=d.userId._id%>"><li><%= d.userId.name %></li></a>
-										</div>
-									</div>
-									<!-- <a  href="/hospital/patient/<%=d.userId %>"><li><%= d.userId.name %></li></a> -->
-								<% } %>
-							</ul>	
-						</div>
-						<!-- <div id="Drs"><button class=" sideNavButton" onclick=openNavtab() type="button ">Doctors<i class="fa fa-angle-right sideNav" aria-hidden="true" onclick=openNav()></i></button></div>				 -->
-						<div id="Drs"><button class=" sideNavButton lists" onclick=openNavtab() type="button "><a>Patients</a><img src="../img/doctor-icon.png" class="Icons doctor-icon"  onclick=openNavtab()></button></div>				
-					</div>
-					<div class="lists">
-						<a href="#">Settings</a>
-						<img src="../img/Settings.png" class="Icons">
-					</div>
-				</div>
-			</div>
-			<%if (path === '/hospital/profile'||path==='/hospital/search') { %>
-				<%- include('../partials/HospitalProfileContent'); %>
-			<% } %>
-			<%if (path === '/hospital/patient') { %>
-				<%- include('../partials/HospitalProfilePatient'); %>
-			<% } %>
-			<%if (path === '/hospital/diseases') { %>
-				<%- include('../partials/hospitalPatientDiseases'); %>
-			<% } %>
-			<%if (path === '/hospital/document') { %>
-				<%- include('../partials/diseaseContentHospital'); %>
-			<% } %>
-			<div class="col-lg-2 col-sm-0 col-12 order-2 order-sm-3" id="pSec3">
-				<div id="Dr"><a>Patients</a><img src="../img/doctor-icon.png" class="Icons doctor-icon" ></div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/Astyle.css" />
+    <title>Admin</title>
+  </head>
+  <body>
+    <div class="next">
+      <div class="left">
+        <main class="info-container">
+          <div class="card">
+            <img src="https://res.cloudinary.com/alexandracaulea/image/upload/v1582179610/user_fckc9f.jpg" alt="User image" class="card__image" />
+            <div class="card__text">
+              <h2><%=hospital.hospitalName%></h2>
+              <p>NIT,Silchar</p>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="right">
+        <section>
+          <h1>Verified</h1>
+		 <%for(var a of activeusers){%>
+			<details>
+				<summary>
+				  <div>
+					<span style="background-color: #f2dcbb;">
+					  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		   width="799.924px" height="799.924px" viewBox="0 0 799.924 799.924" style="enable-background:new 0 0 799.924 799.924;"
+		   xml:space="preserve">
+	  <g>
+		  <polygon points="454.913,203.1 419.44,244.835 409.704,217.012 413.876,203.1 399.963,203.1 386.051,203.1 390.225,217.012 
+			  380.486,244.835 345.011,203.1 290.059,233.706 290.059,489.685 319.274,493.859 330.404,799.924 386.051,799.924 393.007,559.247 
+			  399.963,559.247 406.919,559.247 413.876,799.924 469.519,799.924 480.649,493.859 509.864,489.685 509.864,233.706 	"/>
+		  <path d="M399.963,194.738c40.819,0,73.979-32.715,74.727-73.362H325.233C325.982,162.023,359.142,194.738,399.963,194.738z"/>
+		  <polygon points="514.144,38.008 399.958,0 285.78,38.008 325.435,57.821 325.435,114.709 474.489,114.709 474.489,57.822 	"/>
+	  </g>
+	  </svg>
+					</span>
+					<h3>
+					  <strong><%=a.name%></strong>
+					  <small><%=a.institute%></small>
+					</h3>
+					<span>Verified</span>
+				  </div>
+				</summary>
 				<div>
-					<form method="POST" action="/hospital/search">
-						<input type="text" placeholder="Enter patient unique ID to search" name="short_id"
-						class="mobile-preview shadow floating-animate" id="id_search1">
-					<button id="id_search_button1">Search</button>
-					</form>
-				   
-				</div>
-				<% if (foundUser) { %>
+				  <dl>
+					<a href="/hospital/download/document/<%=a._id%>">
 					<div>
-						<div id="patientId2">
-						<div id="patientImage2"></div>
-						<div id="patientName1">
-						<p><%= foundUser.name %></p>
-						</div>
-						</div>
-						<% if (access.length == 0) { %>
-							<a class="btn btn-danger" href="/hospital/relation/<%= foundUser.short_id %>"" role="button" id="search_button2">Request Patient</a>	
-							<% if (foundUser.nominee) { %>
-								<br>
-								<br>
-								
-								<a class="btn btn-warning" href="/hospital/nominee/<%= foundUser.short_id %>"" role="button" id="search_button2">Request Nominee</a>
-							<% } %>
-					    <% } else { %>
-							<a class="btn btn-primary" href="/hospital/patient?id=<%= foundUser._id %>"" role="button" id="search_button2">View details</a>
-					    <% } %>
-						
+					  <dt>Vaccine Document</dt>
+					  <dd>•••• 6890</dd>
 					</div>
-				<% } %>
-
-				<ul id="patientList1">
-					<% for(var d of patients) { %>
-						<div id="patientId1">
-							<div id="patientImage1"></div>
-							<div id="patientName1">
-							<a  href="/hospital/patient?id=<%=d.userId._id%>"><li><%= d.userId.name %></li></a>
-							</div>
-						</div>
-					<% } %>
-				</ul>	
-						
-
-			</div>
-		</div>
-	</div>
-</div>
-<div class="mobile-view">
-	<%if (path === '/hospital/profile'||path==='/hospital/patient'||path==='/hospital/search') { %>
-		<div class="container-fluid" >	
-			<div class="row">
-				<div class="col-lg-2 col-sm-4 col-12 order-3 order-sm-1" id="pSec1">
-					<div id="leftPanel">
-						<div class="lists">
-							<a href="/hospital/profile">Profile</a> 
-							<img src="../img/profile.png" class="Icons profile-icon">
-						</div>
-						<div class="lists">
-							<a href="#">Appointments</a>
-							<img src="../img/appointment.png" class="Icons">
-						</div>
-						<div class="lists">
-							<a href="#">Progress Report</a>
-							<img src="../img/progress.png" class="Icons">
-						</div>
-						<div class="lists">
-							<a href="#">Message</a>
-							<img src="../img/message.png" class="Icons">
-						</div>
-						<div class=" Doctor-list">
-							<div id="mySidenavTab" class="sidenav">
-								<div id="Dr"><p class="sidenavHeader">Patients<a href="javascript:void(0)" class="closebtn" onclick="closeNavtab()"><i class="fa fa-angle-left sideNav " aria-hidden="true"></i></a></p></div>
-								
-								<% for(var d of patients) { %>
-										<a  href="/hospital/patient?id=<%=d.userId._id%>"><li><%= d.userId.name %></li></a>
-										
-								<% } %>
-							
-							</div>
-							<!-- <div id="Drs"><button class=" sideNavButton" onclick=openNavtab() type="button ">Doctors<i class="fa fa-angle-right sideNav" aria-hidden="true" onclick=openNav()></i></button></div>				 -->
-							<div id="Drs">
-								<button class=" sideNavButton lists" onclick=openNavtab() type="button "><a>Patients</a><img src="../img/doctor-icon.png" class="Icons doctor-icon"  onclick=openNav()></button>
-							
-							</div>				
-						</div>
-		
-						<div class="lists">
-							<a href="#">Settings</a>
-							<img src="../img/Settings.png" class="Icons">
-						</div>
+					</a>
+					<a href="/hospital/download/medicine/<%=a._id%>">
+					<div>
+					  <dt>College ID</dt>
+					  <dd><%=a.scholar_id%></dd>
 					</div>
+					</a>
+				  </dl>
 				</div>
-		
-				<%if (path === '/hospital/profile'||path==='/hospital/search') { %>
-					<%- include('../partials/HospitalProfileContent'); %>
-				<% } %>
-				<%if (path === '/hospital/patient') { %>
-					<%- include('../partials/HospitalProfilePatient'); %>
-				<% } %>
-		
-				<div class="col-lg-2 col-sm-0 col-12 order-2 order-sm-3" id="pSec3">
-					<div id="mySidenav" class="sidenav">
-						<div id="Dr"><p class="sidenavHeader">Paitients<a href="javascript:void(0)" class="closebtn" onclick=closeNav() ><i class="fa fa-angle-left sideNav " aria-hidden="true"></i></a></p></div>
-					    <!--<div>
-							<input type="text" placeholder="Search..."
-								class="mobile-preview shadow floating-animate">
-							<button>click</button>
-						</div>
-						<ul>
-							
-						</ul>	-->
-						<div>
-							<form method="POST" action="/hospital/search">
-								<input type="text" placeholder="Enter patient unique ID to search" name="short_id"
-								class="mobile-preview shadow floating-animate" id="id_search1">
-							<button id="id_search_button1">Search</button>
-							</form>
-						   
-						</div>
-						
-						<% if (foundUser) { %>
-							<div>
-								<div id="patientId2">
-								<div id="patientImage2"></div>
-								<div id="patientName1">
-								<p><%= foundUser.name %></p>
-								</div>
-								</div>
-								<% if (access.length == 0) { %>
-									<a class="btn btn-danger" href="/hospital/relation/<%= foundUser.short_id %>"" role="button" id="search_button2">Request Patient</a>	
-									<% if (foundUser.nominee) { %>
-										<br>
-										<br>
-										
-										
-										<a class="btn btn-warning" href="/hospital/nominee/<%= foundUser.short_id %>"" role="button" id="search_button2">Request Nominee</a>
-										
-										<% } %>
-								<% } else { %>
-									<a class="btn btn-primary" href="/hospital/patient?id=<%= foundUser._id %>"" role="button" id="search_button2">View details</a>
-									
-									<% } %>
-									<div id="separator"></div>
-								
-							</div>
-						<% } %>
-						
-
-		
-						<ul id="patientList1">
-							<% for(var d of patients) { %>
-								<div id="patientId1">
-									<div id="patientImage1"></div>
-									<div id="patientName1">
-									<a  href="/hospital/patient?id=<%=d.userId._id%>"><li><%= d.userId.name %></li></a>
-									</div>
-								</div>
-							<% } %>
-						</ul>	
-
-						
-					</div>
-					<div id="Dr"><a>Patients</a><img src="../img/doctor-icon.png" class="Icons doctor-icon" onclick=openNav()  ></div>				
-				</div>
+			  </details>	
+		<%}%>
+        </section>
+        <section>
+          <h1>On process</h1>
+		  <%for(var b of tobevusers){%>
+        <details>
+          <summary>
+            <div>
+              <span style="background-color: #f2dcbb;">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="799.924px" height="799.924px" viewBox="0 0 799.924 799.924" style="enable-background:new 0 0 799.924 799.924;"
+	 xml:space="preserve">
+<g>
+	<polygon points="454.913,203.1 419.44,244.835 409.704,217.012 413.876,203.1 399.963,203.1 386.051,203.1 390.225,217.012 
+		380.486,244.835 345.011,203.1 290.059,233.706 290.059,489.685 319.274,493.859 330.404,799.924 386.051,799.924 393.007,559.247 
+		399.963,559.247 406.919,559.247 413.876,799.924 469.519,799.924 480.649,493.859 509.864,489.685 509.864,233.706 	"/>
+	<path d="M399.963,194.738c40.819,0,73.979-32.715,74.727-73.362H325.233C325.982,162.023,359.142,194.738,399.963,194.738z"/>
+	<polygon points="514.144,38.008 399.958,0 285.78,38.008 325.435,57.821 325.435,114.709 474.489,114.709 474.489,57.822 	"/>
+</g>
+</svg>
+</span>
+              <h3>
+                <strong><%=b.name%></strong>
+                <small><%=b.institute%></small>
+              </h3>
+			  <form action="/hospital/update/<%=b._id%>" method="POST">
+              <span><button type="submit"  class="verify-btn">Verify</button></span>
+			</form>
 			</div>
-		</div>
-	</div>
-	<% } %>	
-
-	<%if (path === '/hospital/diseases') { %>
-		<%- include('../partials/hospitalPatientDiseases'); %>
-	<% } %>
-	<%if (path === '/hospital/document') { %>
-		<%- include('../partials/diseaseContentHospital'); %>
-	<% } %>
-
-</div>
-
-<%- include('../partials/footer'); %>
-
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="../js/sideNav.js"></script>
-    <script>
-        function myFunction() {
-          document.getElementById("myDropdown").classList.toggle("show");
-        }
-        
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function(event) {
-          if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-              var openDropdown = dropdowns[i];
-              if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-              }
-            }
-          }
-        } 
-        
-		</script>
-		<script>
-			function myFunctionMobile() {
-			  document.getElementById("myDropdownMobile").classList.toggle("show");
-			}
+          </summary>
+          <div>
+            <dl>
+				<a href="/hospital/download/document/<%=b._id%>">
+              <div>
+                <dt>Vaccine Document</dt>
+                <dd>•••• 6890</dd>
+              </div>
+			</a>
+			  <a href="/hospital/download/medicine/<%=b._id%>">
+              <div>
+                <dt>College ID</dt>
+                <dd><%=b.scholar_id%></dd>
+              </div>
+			  </a>
+            </dl>
+          </div>
+        </details>
+		<%}%>
+        </section>
+		<section>
+			<h1>Not  Vaccinated</h1>
+			<%for(var c of inactiveusers){%>
+		  <details>
+			<summary>
+			  <div>
+				<span style="background-color: #f2dcbb;">
+				  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	   width="799.924px" height="799.924px" viewBox="0 0 799.924 799.924" style="enable-background:new 0 0 799.924 799.924;"
+	   xml:space="preserve">
+  <g>
+	  <polygon points="454.913,203.1 419.44,244.835 409.704,217.012 413.876,203.1 399.963,203.1 386.051,203.1 390.225,217.012 
+		  380.486,244.835 345.011,203.1 290.059,233.706 290.059,489.685 319.274,493.859 330.404,799.924 386.051,799.924 393.007,559.247 
+		  399.963,559.247 406.919,559.247 413.876,799.924 469.519,799.924 480.649,493.859 509.864,489.685 509.864,233.706 	"/>
+	  <path d="M399.963,194.738c40.819,0,73.979-32.715,74.727-73.362H325.233C325.982,162.023,359.142,194.738,399.963,194.738z"/>
+	  <polygon points="514.144,38.008 399.958,0 285.78,38.008 325.435,57.821 325.435,114.709 474.489,114.709 474.489,57.822 	"/>
+  </g>
+  </svg>
+  </span>
+  
+				<h3>
+				  <strong><%=c.name%></strong>
+				  <small><%=c.institute%></small>
+				</h3>
 			
-			// Close the dropdown menu if the user clicks outside of it
-			window.onclick = function(event) {
-			  if (!event.target.matches('.dropbtn')) {
-				var dropdowns = document.getElementsByClassName("dropdown-content");
-				var i;
-				for (i = 0; i < dropdowns.length; i++) {
-				  var openDropdown = dropdowns[i];
-				  if (openDropdown.classList.contains('show')) {
-					openDropdown.classList.remove('show');
-				  }
-				}
-			  }
-			} 
-			
-			</script>
-        <script>
-            var modal = document.getElementById("myModal");
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-} 
-var span = document.getElementsByClassName("save1")[0];
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-} 
-		</script>
-		<script>
-$(window, document, undefined).ready(function() {
-$('input').blur(function() {
-  var $this = $(this);
-  if ($this.val())
-	$this.addClass('used');
-  else
-	$this.removeClass('used');
-});
-var $ripples = $('.ripples');
-$ripples.on('click.Ripples', function(e) {
-  var $this = $(this);
-  var $offset = $this.parent().offset();
-  var $circle = $this.find('.ripplesCircle');
-  var x = e.pageX - $offset.left;
-  var y = e.pageY - $offset.top;
-  $circle.css({
-	top: y + 'px',
-	left: x + 'px'
-  });
-  $this.addClass('is-active');
-});
-$ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
-	$(this).removeClass('is-active');
-});
-});
-		</script>
-		<script> 
-		$(document).bind('dragover', function (e) {
-    var dropZone = $('.zone'),
-        timeout = window.dropZoneTimeout;
-    if (!timeout) {
-        dropZone.addClass('in');
-    } else {
-        clearTimeout(timeout);
-    }
-    var found = false,
-        node = e.target;
-    do {
-        if (node === dropZone[0]) {
-            found = true;
-            break;
-        }
-        node = node.parentNode;
-    } while (node != null);
-    if (found) {
-        dropZone.addClass('hover');
-    } else {
-        dropZone.removeClass('hover');
-    }
-    window.dropZoneTimeout = setTimeout(function () {
-        window.dropZoneTimeout = null;
-        dropZone.removeClass('in hover');
-    }, 100);
-});
-		</script>
-</body>
+			  </div>
+			</summary>
+			<div>
+			  <dl>
+				<a href="/hospital/download/document/<%=c._id%>"><div>
+				  <dt>Vaccine Document</dt>
+				  <dd>•••• 6890</dd>
+				</div>
+			</a>
+			<a href="/hospital/download/medicine/<%=c._id%>">
+				<div>
+				  <dt>College ID</dt>
+				  <dd><%=c.scholar_id%></dd>
+				</div>
+			</a>
+			  </dl>
+			</div>
+		  </details>
+		  <%}%>
+		  </section>
+      </div>
+    </div>
+  </body>
 </html>
-
-
-
-
-
-
-
-

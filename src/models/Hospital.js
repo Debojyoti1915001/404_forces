@@ -17,6 +17,11 @@ const hospitalSchema = mongoose.Schema(
             trim: true, 
             
         },
+        institute: {
+            type: String,
+            trim: true, 
+            
+        },
         adminName: {
             type: String,
             trim: true

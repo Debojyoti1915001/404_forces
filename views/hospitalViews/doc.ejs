@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/Astyle.css" />
+    <title>Admin</title>
+  </head>
+  <body>
+   
+      <div class="right">
+        <section>
+          <h1>COVID DOCUMENTS</h1>
+          <%for(var i of disease.document){%>
+            <div class="media" style="background: rgb(179, 232, 241)">
+                <img class="pdf-img align-self-center mr-3" src="../img/pdf-image.png" alt="Generic placeholder image" style="width: 80px" />
+                <div style="display: inline-block" class="media-heading align-self-center"><%=i.originalName%></div>
+                <div class="media-body">
+                    <p>
+                        <a href="/hospital/download/document/pdf?pdfdownload=<%=i.filename%>" style="color: black"><i class="fa fa-download fa-3x" aria-hidden="true"></i></a>
+                    </p>
+                </div>
+            </div>
+            
+            <%}%>
+        </section>
+        <section>
+          <h1>ID CARD</h1>
+		  <%for(var i of disease.medicine){%>
+            <div class="media" style="background: rgb(179, 232, 241)">
+                <img class="pdf-img align-self-center mr-3" src="../img/pdf-image.png" alt="Generic placeholder image" style="width: 80px" />
+                <div style="display: inline-block" class="media-heading align-self-center"><%=i.originalName%></div>
+                <div class="media-body">
+                    <p>
+                        <a href="/hospital/download/medicine/pdf?pdfdownload=<%=i.filename%>" style="color: black"><i class="fa fa-download fa-3x" aria-hidden="true"></i></a>
+                    </p>
+                </div>
+            </div>
+            <%}%>
+        </section>
+		 
+      </div>
+    </div>
+  </body>
+</html>
