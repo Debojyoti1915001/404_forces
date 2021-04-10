@@ -600,7 +600,7 @@ module.exports.picupload_post=async(req,res)=>{
             req.flash("error_msg", "Something wrong when updating data!")
             res.redirect('/hospital/profile')
         }
-        
+        res.redirect('/hospital/profile')    
         // console.log(doc);
     });
     res.redirect('/hospital/profile')
@@ -613,7 +613,7 @@ module.exports.verify_post=async(req,res)=>{
             req.flash("error_msg", "Something wrong when updating data!")
             res.redirect('/hospital/profile')
         }
-        
+        res.redirect('/hospital/profile')   
         // console.log(doc);
     });
     res.redirect('/hospital/profile')
@@ -662,7 +662,7 @@ module.exports.update= async (req, res) => {
                 req.flash('error_msg', 'Something wrong when updating data!')
                 res.redirect('/hospital/profile')
             }
-
+            res.redirect('/hospital/profile')   
             // console.log(doc)
         }
     )

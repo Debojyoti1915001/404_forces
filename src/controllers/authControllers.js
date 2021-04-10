@@ -607,7 +607,7 @@ module.exports.picupload_post = async (req, res) => {
                 req.flash('error_msg', 'Something wrong when updating data!')
                 res.redirect('/user/profile')
             }
-
+            res.redirect('/user/profile')
             // console.log(doc)
         }
     )
@@ -629,7 +629,7 @@ module.exports.data_post= async (req, res) => {
                     req.flash('error_msg', 'Something wrong when updating data!')
                     res.redirect('/user/profile')
                 }
-    
+                res.redirect('/user/profile')
                 // console.log(doc)
             }
         )
@@ -644,6 +644,7 @@ module.exports.data_post= async (req, res) => {
                     req.flash('error_msg', 'Something wrong when updating data!')
                     res.redirect('/user/profile')
                 }
+                res.redirect('/user/profile')
     
                 // console.log(doc)
             }
