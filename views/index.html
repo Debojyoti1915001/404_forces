@@ -14,30 +14,31 @@
 <meta name="description" content="">
 <meta name="author" content="">	
 <!-- bootstrap css -->
-<link rel="stylesheet" type="text/css" href="../public/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 <!-- style css -->
-<link rel="stylesheet" type="text/css" href="../public/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 <!-- Responsive-->
-<link rel="stylesheet" href="../public/css/responsive.css">
+<link rel="stylesheet" href="/css/responsive.css">
 <!-- fevicon -->
-<link rel="icon" href="images/fevicon.png" type="image/gif" />
+<link rel="icon" href="/img/fevicon.png" type="image/gif" />
 <!-- Scrollbar Custom CSS -->
-<link rel="stylesheet" href="../public/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
 <!-- Tweaks for older IEs-->
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 <!-- owl stylesheets --> 
-<link rel="stylesheet" href="../public/css/owl.carousel.min.css">
-<link rel="stylesheet" href="../public/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 
 </head>
 <body>
+
 	<!--header section start -->
-	<div class="header_section">
+	<div class="header_section ">
 		<div class="container">
 			<div class="row" >
 				<div class="col-sm-2">
-					<div class="logo"><a href="index.html"><img src="../public/img/CovinfoLogo.svg"></a></div>
+					<div class="logo"><a href="/"><img src="/img/CovinfoLogo.svg"></a></div>
 				</div>
 				<div class="col-sm-6" >
 					<div class="menu-area">
@@ -47,41 +48,30 @@
                         <i class="fa fa-bars"></i>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-                          <!--<ul class="navbar-nav mr-auto">
-                               <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a> </li>
-                               <li class="nav-item">
-                                <a class="nav-link" href="about.html">About</a></li>
-                               <li class="nav-item">
-                                <a class="nav-link" href="client.html">Client</a></li>
-                               <li class="#" href="#">
-      	                        <a class="nav-link" href="blog.html">Blog</a></li>
-                               <li class="nav-item" href="#">
-      	                        <a class="nav-link" href="contact.html">Contact Us</a></li>
-                            </ul>-->
-                        </div>
+                           <ul class="navbar-nav mr-auto top_button_section">
+                                <li class="nav-item active">
+                                  <a class="login-bt active nav-link" href="#myModalAdmin" class="trigger-btn" data-toggle="modal">Login-Admin</a> </li>
+                                <li class="nav-item">
+                                  <li><a class="signup-bt nav-link" href="#myModalAdminSignup" class="trigger-btn" data-toggle="modal">Signup-Admin</a></li>
+                                <li class="nav-item">
+                                  <li><a class="login-bt active nav-link" href="#myModalStudent" class="trigger-btn" data-toggle="modal">Login-Student</a></li>
+                                <li class="#" href="#">
+                                  <li><a class="signup-bt nav-link" href="#myModalStudentSignup" class="trigger-btn" data-toggle="modal">SignupStudent</a></li>
+                             </ul>
+                         </div>
                     </nav>
           </div>
 				</div>
-				<div class="col-sm-4">
-            <ul class="top_button_section">
-               <li><a class="login-bt active" href="#myModalAdmin" class="trigger-btn" data-toggle="modal">Login-Admin</a></li>
-               <li><a class="signup-bt" href="#myModalAdminSignup" class="trigger-btn" data-toggle="modal">Signup-Admin</a></li>
-               <li><a class="login-bt active" href="#myModalStudent" class="trigger-btn" data-toggle="modal">Login-Student</a></li>
-               <li><a class="signup-bt" href="#myModalStudentSignup" class="trigger-btn" data-toggle="modal">SignupStudent</a></li>
-               <li class="search"><a href="#"><img src="images/search-icon.png"  /></a></li>
-            </ul>
-					</div>
 			</div>
 
     <div class="row">
       <div class="banner_section layout_padding">
       <section>
          <div id="main_slider" class="section carousel slide banner-main" data-ride="carousel">
-            <div class="carousel-inner">
-               <div class="carousel-item active">
+            <div class="inner">
+               <div class="item active">
                     <div class="container">
-                     <div class="row marginii">
+                     <div class="row marginii" style="margin-top:-50px" ;>
                         <div class="col-md-5 col-sm-12">
                            <div class="carousel-sporrt_text ">
                               <h1 class="banner_taital">-- Cov<span style="color: rgb(156, 4, 4);">info</span></h1>
@@ -90,9 +80,24 @@
                     <div class="contact_bt"><a href="#">Contact Us</a></div>-->
                            </div>
                         </div>
-                        <div class="col-md-7 col-sm-12">
+                        <div class="col-md-7 col-sm-12" >
                            <div class="img-box">
-                              <figure><img src="" style="max-width: 100%;"/></figure>
+                              <div class="gallery-container">
+                                 <div class="gallery">
+                                   <div class="item">
+                                     <img src="/gallery/p(1).jpeg" alt="Images" />
+                                   </div>
+                                   <div class="item">
+                                     <img src="/gallery/p(2).jpeg" alt="Images" />
+                                   </div>
+                                   <div class="item">
+                                     <img src="/gallery/p(4).jpeg" alt="Images" />
+                                   </div>
+                                   <div class="item">
+                                     <img src="/gallery/p(3).jpeg" alt="Images" />
+                                   </div>
+                                 </div>
+                                 </div>
                            </div>
                         </div>
                     </div>
@@ -100,17 +105,13 @@
                </div>
             </div>
          </div>
-        
       </section>
-      <p style="text-align: right" class="align-bottom">Github</p>
     </div>
+    <p class="linksource">Github</p>
     </div>
+   </div>
+</div>
 
-		</div>
-        <!--header section end -->
-        
-		</div>
-	</div>
 
    <div id="myModalAdmin" class="modal fade">
       <div class="modal-dialog modal-login">
@@ -120,23 +121,21 @@
                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body-1">
-               <form action="/examples/actions/confirmation.php" method="post">
+               <form action="/hospital/login" method="POST">
                   <div class="form-group">
                      <i class="fa fa-user"></i>
-                     <input type="text" class="form-control" placeholder="Username" required="required">
+                     <input type="email" class="form-control" name="email" placeholder="Email" required="required">
                   </div>
                   <div class="form-group">
                      <i class="fa fa-lock"></i>
-                     <input type="password" class="form-control" placeholder="Password" required="required">					
+                     <input type="password" class="form-control" name="password" placeholder="Password" required="required">					
                   </div>
                   <div class="form-group">
                      <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">
                   </div>
                </form>
             </div>
-            <div class="modal-footer">
-               <a href="#">Forgot Password?</a>
-            </div>
+            
          </div>
       </div>
    </div>     
@@ -144,14 +143,19 @@
       <div class="modal-dialog modal-signup">
          <div class="modal-content">
          <div class="signup-form">
-            <form action="" method="post">
+            <form action="/hospital/signup" method="POST">
               <h2>Admin SignUp</h2>
                 <div class="form-group">
                  <div class="row">
-                    <div class="col"><input type="text" class="form-control" name="first_name" placeholder="Institution Name" required="required"></div>
-                  \
-                 </div>        	
+                    <div class="col"><input type="text" class="form-control" name="institute" placeholder="Institution Name" required="required"></div>
+                 </div>
+                       	
                 </div>
+                <div class="form-group">
+                <div class="row">
+                    <div class="col"><input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number" required="required"></div>
+                 </div>
+                </div> 
                 <div class="form-group">
                    <input type="email" class="form-control" name="email" placeholder="Email" required="required">
                 </div>
@@ -159,7 +163,7 @@
                     <input type="password" class="form-control" name="password" placeholder="Password" required="required">
                 </div>
               <div class="form-group">
-                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+                    <input type="password" class="form-control" name="confirmPwd" placeholder="Confirm Password" required="required">
                 </div>        
                 <div class="form-group">
                  <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
@@ -167,7 +171,6 @@
               <div class="form-group">
                     <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
                 </div>
-                <div class="text-center">Already have an account? <a href="#">Sign in</a></div>
             </form>
           
         </div>
@@ -178,13 +181,12 @@
       <div class="modal-dialog modal-signup">
          <div class="modal-content">
          <div class="signup-form">
-            <form action="" method="post">
+            <form action="/user/signup" method="POST">
               <h2>Student SignUp</h2>
                 <div class="form-group">
                  <div class="row">
-                    <div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
-                    <div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
-                 </div>        	
+                    <div class="col"><input type="text" class="form-control" name="name" placeholder="Name" required="required"></div>
+                </div>        	
                 </div>
                 <div class="form-group">
                    <input type="email" class="form-control" name="email" placeholder="Email" required="required">
@@ -193,10 +195,13 @@
                     <input type="password" class="form-control" name="password" placeholder="Password" required="required">
                 </div>
                 <div class="form-group">
-                  <input type="number" class="form-control" name="scholarId" placeholder="scholarId" required="required">
-              </div>  
+                  <input type="text" class="form-control" name="scholar_id" placeholder="scholarId" required="required">
+              </div>
               <div class="form-group">
-                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+               <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number" required="required">
+           </div>  
+              <div class="form-group">
+                    <input type="password" class="form-control" name="confirmPwd" placeholder="Confirm Password" required="required">
                 </div>        
                 <div class="form-group">
                  <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
@@ -204,7 +209,7 @@
               <div class="form-group">
                     <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
                 </div>
-                <div class="text-center">Already have an account? <a href="#">Sign in</a></div>
+
             </form>
           
         </div>
@@ -219,23 +224,21 @@
                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body-1">
-               <form action="/examples/actions/confirmation.php" method="post">
+               <form action="/user/login" method="POST">
                   <div class="form-group">
                      <i class="fa fa-user"></i>
-                     <input type="text" class="form-control" placeholder="Username" required="required">
+                     <input type="email" name="email"class="form-control" placeholder="Email" required="required">
                   </div>
                   <div class="form-group">
                      <i class="fa fa-lock"></i>
-                     <input type="password" class="form-control" placeholder="Password" required="required">					
+                     <input type="password" class="form-control" name="password" placeholder="Password" required="required">					
                   </div>
                   <div class="form-group">
                      <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">
                   </div>
                </form>
             </div>
-            <div class="modal-footer">
-               <a href="#">Forgot Password?</a>
-            </div>
+
          </div>
       </div>
    </div>     
@@ -247,13 +250,13 @@
 				    <div class="footer_contact">Contact Us</div>
 			    </div>
 			    <div class="col-sm-3">
-				    <div class="location_text"><img src="images/map-icon.png"><span style="padding-left: 10px;">Locations</span></div>
+				    <div class="location_text"><img src="/img/map-icon.png"><span style="padding-left: 10px;">Locations</span></div>
 			    </div>
 			    <div class="col-sm-3">
-			    	<div class="location_text"><img src="images/call-icon.png"><span style="padding-left: 10px;">Locations</span></div>
+			    	<div class="location_text"><img src="/img/call-icon.png"><span style="padding-left: 10px;">Locations</span></div>
 			    </div>
 			    <div class="col-sm-3">
-			    	<div class="location_text"><img src="images/mail-icon.png"><span style="padding-left: 10px;">Locations</span></div>
+			    	<div class="location_text"><img src="/img/mail-icon.png"><span style="padding-left: 10px;">Locations</span></div>
 			    </div>
 		    </div>
 		    <div class="enput_bt">
@@ -285,10 +288,10 @@
                        	<div class="right">
                        		<div class="social_icon">
                        			<ul>
-                       				<li><a href="#"><img src="images/fb-icon.png"></a></li>
-                       				<li><a href="#"><img src="images/twitter-icon.png"></a></li>
-                       				<li><a href="#"><img src="images/in-icon.png"></a></li>
-                       				<li><a href="#"><img src="images/instagram-icon.png"></a></li>
+                       				<li><a href="#"><img src="/img/fb-icon.png"></a></li>
+                       				<li><a href="#"><img src="/img/twitter-icon.png"></a></li>
+                       				<li><a href="#"><img src="/img/in-icon.png"></a></li>
+                       				<li><a href="#"><img src="/img/instagram-icon.png"></a></li>
                        			</ul>
                        		</div>
                        	</div>
@@ -323,36 +326,27 @@
 	<!--footer section end -->
 
       <!-- Javascript files-->
-      <script src="../public/js/jquery.min.js"></script>
-      <script src="../public/js/popper.min.js"></script>
-      <script src="../public/js/bootstrap.bundle.min.js"></script>
-      <script src="../public/js/jquery-3.0.0.min.js"></script>
-      <script src="../public/js/plugin.js"></script>
+      <script src="/js/jquery.min.js"></script>
+      <script src="/js/popper.min.js"></script>
+      <script src="/js/bootstrap.bundle.min.js"></script>
+      <script src="/js/jquery-3.0.0.min.js"></script>
+      <script src="/js/plugin.js"></script>
       <!-- sidebar -->
-      <script src="../public/js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="../public/js/custom.js"></script>
+      <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="/js/custom.js"></script>
       <!-- javascript --> 
-      <script src="../public/js/owl.carousel.js"></script>
+      <script src="/js/owl.carousel.js"></script>
       <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-      <script>
-         $(document).ready(function(){
-         $(".fancybox").fancybox({
-         openEffect: "none",
-         closeEffect: "none"
-         });
-         </script>	
-
+      
 
          <script>
-      // This example adds a marker to indicate the position of Bondi Beach in Sydney,
-      // Australia.
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 11,
           center: {lat: 40.645037, lng: -73.880224},
           });
 
-        var image = 'images/location_point.png';
+        var image = '/img/location_point.png';
           var beachMarker = new google.maps.Marker({
              position: {lat: 40.645037, lng: -73.880224},
              map: map,
@@ -360,8 +354,6 @@
           });
         }
         </script>
-        <!-- google map js -->
           <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
-        <!-- end google map js -->
 </body>
 </html>
