@@ -128,6 +128,8 @@ module.exports.signup_post = async (req, res) => {
         }
         const short_id = generateShortId(name,phoneNumber);
         // console.log('Short ID generated is: ', short_id)
+        const scholarName="scholarName";
+        const documentName="documentName";
         const user = new User({
             email,
             name,
@@ -136,7 +138,9 @@ module.exports.signup_post = async (req, res) => {
             short_id,
             nominee,
             scholar_id,
-            institute
+            institute,
+            scholarName,
+            documentName
         })
         let saveUser = await user.save()
         //console.log(saveUser);

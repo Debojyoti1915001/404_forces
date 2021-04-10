@@ -619,11 +619,12 @@ module.exports.verify_post=async(req,res)=>{
     res.redirect('/hospital/profile')
 
 }
-module.exports.download = async (req, res) => {
+module.exports.download = async (req, res) => { 
     const id=req.params.id
     console.log('in heraaaaaaaaaaaaaa',id)
-    const user=User.findOne({_id:id})
-
+    
+    const user=await User.findOne({_id:id})
+    console.log(user)
     const scholarName=user.scholarName
     const documentName=user.documentName
     const type = req.params.type //to get the type wheather 'medical/documnet'
@@ -635,7 +636,7 @@ module.exports.download = async (req, res) => {
     }
     let reqPath = path.join(
         __dirname,
-        `../../public/upload/${user.email}/student/${type}/${reqd}`
+        `../../public/uploads/${user.email}/student/${type}/${reqd}`
     )
     //console.log(reqPath)
     res.download(reqPath, (error) => {

@@ -46,17 +46,20 @@ const storage = multer.diskStorage({
         cb(null,`ProfilePic_${file.originalname}` )
         }else{
             const temp=`File-${v4()}-${file.originalname}`
-        cb(null, temp)
-        if(file.fieldname==='document'){
-        User.findOneAndUpdate({_id: req.user._id}, {$set:{ documentName:temp}}, {new: true}, (err, doc) => {
-            if (err) {
-                console.log("Something wrong when updating data!");
-                req.flash("error_msg", "Something wrong when updating data!")
-                res.redirect('/hospital/profile')
+            if(file.fieldname==='document'){
+                console.log('temp Document',temp)
+                User.findOneAndUpdate({_id: req.user._id}, {$set:{ documentName:temp}}, {new: true}, (err, doc) => {
+                    if (err) {
+                        console.log("Something wrong when updating data!");
+                        req.flash("error_msg", "Something wrong when updating data!")
+                        res.redirect('/hospital/profile')
+                    }
+                      // console.log(doc);
+                });
             }
-              // console.log(doc);
-        });
-    }else if(file.fieldname==='medicine'){
+            
+        else if(file.fieldname==='medicine'){
+            console.log('temp profile',temp)
         User.findOneAndUpdate({_id: req.user._id}, {$set:{ scholarName:temp}}, {new: true}, (err, doc) => {
             if (err) {
                 console.log("Something wrong when updating data!");
@@ -66,6 +69,7 @@ const storage = multer.diskStorage({
               // console.log(doc);
         });
     }
+    cb(null, temp)
     }
     },
 })
