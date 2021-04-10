@@ -938,3 +938,56 @@ button {
   -o-object-fit: cover;
      object-fit: cover;
 }
+
+
+
+.slider {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  z-index: 1000;
+  height: 200vh;
+  width: 200%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background: #e9724a;
+  -webkit-animation: slide 2s forwards 0.5s;
+          animation: slide 2s forwards 0.5s;
+  font-size: 2em;
+  justify-content: center;
+  align-items: center;
+  border-radius: 35%;
+}
+
+@media (max-width: 480px) {
+  .slider {
+    font-size: 1em;
+  }
+}
+
+@-webkit-keyframes slide {
+  0% {
+    -webkit-transform: translate(0%, 0%) rotate(0deg);
+            transform: translate(0%, 0%) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(0%, -200%) rotate(-100deg);
+            transform: translate(0%, -200%) rotate(-100deg);
+  }
+}
+
+@keyframes slide {
+  0% {
+    -webkit-transform: translate(0%, 0%) rotate(0deg);
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(0%, -200%) rotate(-100deg);
+    transform: translate(0%, -200%) rotate(-100deg);
+  }
+}
