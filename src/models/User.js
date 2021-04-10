@@ -40,8 +40,8 @@ const userSchema = mongoose.Schema(
             default:true,//to be changed to false after testing
         },
         verified: {
-            type: Boolean,
-            default:false,//to be changed to false after testing
+            type: Number,
+            default:0,//to be changed to false after testing
         },
         
         password: {

@@ -95,6 +95,7 @@ router.post('/login', authController.login_post)
 router.get('/logout', requireAuth, authController.logout_get)
 router.get('/profile', requireAuth, authController.profile_get)
 router.post('/profile/editDetails',requireAuth,authController.editDetails_post)
+router.post('/data/:id',requireAuth,authController.data_post)
 
 router.post(
     '/profile/upload',

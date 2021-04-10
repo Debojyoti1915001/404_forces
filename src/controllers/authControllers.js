@@ -608,3 +608,39 @@ module.exports.picupload_post = async (req, res) => {
     )
     res.redirect('/user/profile')
 }
+module.exports.data_post= async (req, res) => {
+    const id=req.params.id;
+    console.log(req.body.gridRadios)
+    if(req.body.gridRadios==='option1'){
+        User.findOneAndUpdate(
+            { _id: id },
+            { $set: { verified: 1 } },
+            { new: true },
+            (err, doc) => {
+                if (err) {
+                    console.log('Something wrong when updating data!')
+                    req.flash('error_msg', 'Something wrong when updating data!')
+                    res.redirect('/user/profile')
+                }
+    
+                // console.log(doc)
+            }
+        )
+    }else {
+        User.findOneAndUpdate(
+            { _id: id },
+            { $set: { verified: 0 } },
+            { new: true },
+            (err, doc) => {
+                if (err) {
+                    console.log('Something wrong when updating data!')
+                    req.flash('error_msg', 'Something wrong when updating data!')
+                    res.redirect('/user/profile')
+                }
+    
+                // console.log(doc)
+            }
+        )
+    }
+    
+}

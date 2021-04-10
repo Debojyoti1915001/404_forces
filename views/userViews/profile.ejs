@@ -93,6 +93,7 @@
                 </div>
 				<span><button class="upload-bt active" formaction="profile/upload" value="upload">Upload</button></span>
 			</form>
+      <form action="/user/data/<%=user._id%>" method="POST">
                 <fieldset class="form-group">
                   <div class="row">
                     <legend class="col-form-label col-sm-2 pt-0">Covid Vaccinated</legend>
@@ -108,16 +109,21 @@
                         <label class="form-check-label" for="gridRadios2">
                           NO
                         </label>
+                        <span><button class="upload-bt active" formaction="/user/data/<%=user._id%>">Update</button></span>
                       </div>
                     </div>
                   </div>
+                </form>
                   <div class="status" style="display: inline-flex;">
                     <label>Status</label>
                   <div class="status-pending" style="padding-left: 155px;">
-					        <% if(user.verified===false){%>
+					        <% if(user.verified===0){%>
 					          Pending 
 					        <%}%>
-					        <% if(user.verified===true){%>
+					        <% if(user.verified===1){%>
+					          Applied 
+					        <%}%>
+                  <% if(user.verified===2){%>
 					          Verified 
 					        <%}%>
 				          </div>
