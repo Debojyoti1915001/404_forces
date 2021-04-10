@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="../css/edit-form.css">
+
+<div id="myModal-dp-edit" class="modal-dp-edit">
+
+    <!-- Modal content -->
+    <div class="modal-content-dp-edit">
+      <span class="close-dp-edit">&times;</span>
+      <div class="col-md-6">
+        <form class="form-group"  method="POST" action="/user/profile/picupload" enctype="multipart/form-data">
+            <label>Upload Image</label>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <span class="btn btn-default btn-file">
+                        Browse… <input type="file" id="profilePic"name="profilePic">
+                    </span>
+                </span>
+                <input type="text" class="form-control" placeholder="Choose a file" readonly>
+            </div>
+            <img id='img-upload' style="max-width: 30%;"/>
+            <button type="save" class="save-dp-edit">Save</button>
+        </form>
+    </div>
+    </div>
+  </div>
+
+
+<div class="col-lg-8 col-sm-8 col-12 order-1 order-sm-2" id="pSec2">
+    <div id="sub1">
+        <img src="../img/CoverPhoto.png" id="coverImg">
+        <% if (user.profilePic){%>
+        <a href="#"><img src="../uploads/<%=user.email%>/profilePic/<%=user.profilePic%>"  id="profileImg"></a>
+        <%}else{%>
+            <a href="#"><img src="../img/ProfilePic.png"  id="profileImg"></a>
+            <%}%>
+        <a href="#"><img src="../img/camera.png" id="Camera"></a>
+        <h5 id="name"><%if (user.name) { %>
+            <%=user.name %>
+            <% } %></h5>
+        <h4 id="heading1">Patient Id-:<%if (user.short_id) { %>
+            <%=user.short_id %>
+            <% } %><span id="patientId"></span></h4>
+        <div id="patientDetails">
+            <button id="myBtnEdit"  data-toggle="modal" data-target="#myModalEdit" onclick=modalEdit()>edit</button>
+            <h3 id="heading2">Patient Details</h3>
+            <label for="PhoneNo" class="detailLevels">Phone No. : <%if (user.phoneNumber) { %>
+				<%=user.phoneNumber %>
+				<% } %> </label>
+            <br>
+            <label for="Email" class="detailLevels">Email :<%if (user.email) { %>
+				<%=user.email %>
+				<% } %></label>
+            <br>
+            <label for="bloodGroup" class="detailLevels">Nominee Email:<%if (nominee.nominee) { %>
+				<%=nominee.nominee.email %>
+				<% } %></label>
+            <br>
+        </div>
+    </div>
+</div>
+

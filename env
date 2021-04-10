@@ -1,0 +1,4 @@
+MONGODB_URL=mongodb+srv://debojyoti:debo01@debo01-2nrle.mongodb.net/password?retryWrites=true&w=majority
+NODEMAILER_EMAIL= covinfo001@gmail.com
+NODEMAILER_PASSWORD = ABCabc@123
+JWT_SECRET = vaccinesForLife
