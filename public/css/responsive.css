@@ -190,8 +190,8 @@ width: 30%;
 .clients_section { margin-top: 0px;}
 .red_bt { margin-left: 20px; height: 44px; padding-top: 3px;}
 .top_button_section { width: 90%; padding: 0px;}
-.top_button_section li a.login-bt { font-size: 14px; padding: 0px 16px;}
-.top_button_section li a.signup-bt { font-size: 14px; padding: 0px 16px;}
+.top_button_section li a.login-bt { font-size: 4px; padding: 0px 16px;}
+.top_button_section li a.signup-bt { font-size: 4px; padding: 0px 16px;}
 
 
 

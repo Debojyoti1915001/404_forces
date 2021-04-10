@@ -368,3 +368,21 @@ dl div {
   color: white;
 }
 /*# sourceMappingURL=style.css.map */
+nav{
+  width: 80%;
+  height:7vh;
+  
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  margin: 1vh auto;
+  align-items: center;
+  text-align: center;
+ }
+ nav button{
+  background: transparent;
+  border: 1px solid black;
+  font-size:0.75em;
+  padding: .35em;
+  cursor: pointer;
+ }

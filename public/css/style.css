@@ -2,7 +2,7 @@
 
 /*--------------------------------------------------------------------- import Fonts ---------------------------------------------------------------------*/
 
-@import url("https://fonts.googleapis.com/css?family=Poppins:400");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
 /*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
 
@@ -29,7 +29,7 @@ html {
 body {
   color: #707070;
   font-size: 14px;
-  font-family: "opensans";
+  font-family: "Inter", sans-serif;
   line-height: 1.80857;
   font-weight: normal;
   overflow-x: hidden;
@@ -213,8 +213,10 @@ button {
   background-size: 100%;
   background-repeat: no-repeat;
   min-height: 100vh;
-  background: rgb(229,225,238);
-background: linear-gradient(90deg, rgba(229,225,238,1) 5%, rgba(223,253,255,1) 35%);
+  background: linear-gradient(
+    117.43deg,
+    #e5e1ee 2.39%,
+    rgba(223, 253, 255, 0) 107.85%);
 }
 
 .header {
@@ -256,7 +258,7 @@ background: linear-gradient(90deg, rgba(229,225,238,1) 5%, rgba(223,253,255,1) 3
 .login-bt {
   width: 100%;
   float: left;
-  font-size: auto;
+  font-size: 12px !important;
   color: #cfcfcf !important;
   text-align: center;
   background-color: #141414 !important;
@@ -267,7 +269,7 @@ background: linear-gradient(90deg, rgba(229,225,238,1) 5%, rgba(223,253,255,1) 3
 .signup-bt {
   width: 100%;
   float: left;
-  font-size: auto;
+  font-size: 12px !important;
   color: #141414 !important;
   text-align: center;
   background-color: tra !important;
