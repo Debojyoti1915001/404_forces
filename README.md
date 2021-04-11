@@ -10,3 +10,6 @@ The verified status in the students portal can be used in time of re-entering th
 
 PPT LINK:
 https://nits365-my.sharepoint.com/:p:/g/personal/debojyoti_ug_ei_nits_ac_in/EVDlHPFOiodMtUumkzzrL04BttJ3H6ez5lUBv6ewbyjtpg?e=45fuaV
+
+YOUTUBE LINK:
+https://youtu.be/79Ty0AbMAd4
