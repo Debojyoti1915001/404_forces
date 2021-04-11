@@ -80,16 +80,16 @@
   <div class="profile-card2">
               <h1>Student Dashboard</h1>
               <div class="status" style="display: inline-flex;">
-                <label style="color: #1f1f1f;">Status</label>
-              <div class="status-pending" style="padding-left: 60px;">
+                <label style="color: #1f1f1f;font-size: 1rem">Status:</label>
+              <div class="status-pending" style="padding-left: 60px;font-size: 1.25rem;">
               <% if(user.verified==='0'){%>
-                Not Vaccinated
+               <strong style="color:red"> Not Vaccinated</strong>
               <%}%>
               <% if(user.verified==='1'){%>
-                Pending  
+                <strong style="color:#FFC100">Pending</strong>  
               <%}%>
               <% if(user.verified==='2'){%>
-                Verified 
+                <strong style="color:#84CD93">Verified</strong> 
               <%}%>
               </div>
               </div>
