@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- basic -->
+<meta charset="utf-8">
+<link rel = "icon" href = 
+"/img/CovinfoLogo.svg" 
+        type = "image/x-icon">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Covinfo-Student Dashboard</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">	
+<!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<!-- Responsive-->
+<link rel="stylesheet" href="/css/responsive.css">
+<!-- fevicon -->
+<link rel="icon" href="/img/fevicon.png" type="image/gif" />
+<!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+<!-- Tweaks for older IEs-->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<!-- owl stylesheets --> 
+<link rel="stylesheet" href="/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
+</head>
+<body>
+  <div class="slider">
+		<img src="/img/CovinfoLogo.svg">
+	 </div>
+	<!--header section start -->
+	<div class="header_section">
+		<div class="container">
+			<div class="row" >
+				<div class="col-sm-2">
+					<div class="logo"><a href="/"><img src="/img/CovinfoLogo.svg"></a></div>
+				</div>
+				<div class="col-sm-6" >
+					<div class="menu-area">
+                    <nav class="navbar navbar-expand-lg " >
+                         <!--<a class="navbar-brand" href="#">Menu</a>-->
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                          <!--<ul class="navbar-nav mr-auto">
+                               <li class="nav-item active">
+                                <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a> </li>
+                               <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a></li>
+                               <li class="nav-item">
+                                <a class="nav-link" href="client.html">Client</a></li>
+                               <li class="#" href="#">
+      	                        <a class="nav-link" href="blog.html">Blog</a></li>
+                               <li class="nav-item" href="#">
+      	                        <a class="nav-link" href="contact.html">Contact Us</a></li>
+                            </ul>-->
+                        </div>
+                    </nav>
+          </div>
+				</div>
+				<div class="col-sm-4">
+            <ul class="top_button_section">
+               <li><a class="login-bt active" href="/user/logout" class="trigger-btn" data-toggle="modal">Log Out</a></li>
+            </ul>
+					</div>
+			</div>
+    
+  <!--starting-->
+  <div class="profile-card2">
+              <h1>Student Dashboard</h1>
+              <div class="status" style="display: inline-flex;">
+                <label style="color: #1f1f1f;font-size: 1rem">Status:</label>
+              <div class="status-pending" style="padding-left: 60px;font-size: 1.25rem;">
+              <% if(user.verified==='0'){%>
+               <strong style="color:red"> Not Vaccinated</strong>
+              <%}%>
+              <% if(user.verified==='1'){%>
+                <strong style="color:#FFC100">Pending</strong>  
+              <%}%>
+              <% if(user.verified==='2'){%>
+                <strong style="color:#84CD93">Verified</strong> 
+              <%}%>
+              </div>
+              </div>
+              <div class="card-header2">
+              
+ 
+              <img class="image2" src="http://vignette2.wikia.nocookie.net/fairytail/images/7/77/Natsu_prof.jpg/revision/latest?cb=20110731042906" alt="profile Image">
+              <div class="card-info2">
+                <h2><%=user.name%></h2>
+                <h3><%=user.scholar_id%></h3>
+                <h5><%=user.institute%></h5>
+              </div>
+            </div>
+              <form class="bottom2" method="POST" enctype="multipart/form-data">
+                <div class="CollegeID">
+                    <label class="form-label" for="customFile">Upload College ID</label>
+                     <input type="file" name="document" class="form-control" id="customFile" />
+                </div>
+                <div class="VaccineCertificate">
+                  <label class="form-label" for="customFile">Upload Vaccine Certificate</label>
+                   <input type="file" name="medicine" class="form-control" id="customFile" />
+                </div>
+				<span><button class="upload-bt active" formaction="profile/upload" value="upload">Upload</button></span>
+			</form>
+      <form action="/user/data/<%=user._id%>" method="POST">
+                <fieldset class="form-group" >
+                  <div class="row" >
+                    <legend class="col-form-label col-sm-5 pt-0">Covid Vaccinated</legend>
+                    <div class="col-sm-7">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                        <label class="form-check-label" for="gridRadios1">
+                          YES
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                        <label class="form-check-label" for="gridRadios2">
+                          NO
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <span><button class="upload-bt active" formaction="/user/data/<%=user._id%>">Save</button></span>
+                </form>
+            </div>
+<!--end of profile-card-->
+</body>
+</html>

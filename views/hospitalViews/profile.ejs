@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/Astyle.css" />
+    <title>Admin</title>
+	<link rel = "icon" href = 
+	"/img/CovinfoLogo.svg" 
+			type = "image/x-icon">
+     <!-- Responsive-->
+  </head>
+  <body>
+	<div class="slider">
+		<img src="/img/CovinfoLogo.svg">
+	 </div>
+	<nav>
+		<form action="/hospital/logout" method="GET">
+		<a href=""><img src="/img/CovinfoLogo.svg" alt=""></a>
+		<button>SignOut</button>
+		</form>
+	 </nav>
+   
+	 
+
+    <div class="next">
+      <div class="left">
+        <main class="info-container">
+          <div class="card">
+            <img src="https://res.cloudinary.com/alexandracaulea/image/upload/v1582179610/user_fckc9f.jpg" alt="User image" class="card__image" />
+            <div class="card__text">
+              <h2><%=hospital.hospitalName%></h2>
+              <p>NIT,Silchar</p>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="right">
+        <section>
+          <h1>Verified</h1>
+		 <%for(var a of activeusers){%>
+			<details>
+				<summary>
+				  <div>
+					<span style="background-color: #f2dcbb;">
+					  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		   width="799.924px" height="799.924px" viewBox="0 0 799.924 799.924" style="enable-background:new 0 0 799.924 799.924;"
+		   xml:space="preserve">
+	  <g>
+		  <polygon points="454.913,203.1 419.44,244.835 409.704,217.012 413.876,203.1 399.963,203.1 386.051,203.1 390.225,217.012 
+			  380.486,244.835 345.011,203.1 290.059,233.706 290.059,489.685 319.274,493.859 330.404,799.924 386.051,799.924 393.007,559.247 
+			  399.963,559.247 406.919,559.247 413.876,799.924 469.519,799.924 480.649,493.859 509.864,489.685 509.864,233.706 	"/>
+		  <path d="M399.963,194.738c40.819,0,73.979-32.715,74.727-73.362H325.233C325.982,162.023,359.142,194.738,399.963,194.738z"/>
+		  <polygon points="514.144,38.008 399.958,0 285.78,38.008 325.435,57.821 325.435,114.709 474.489,114.709 474.489,57.822 	"/>
+	  </g>
+	  </svg>
+					</span>
+					<h3>
+					  <strong><%=a.name%></strong>
+					  <small><%=a.institute%></small>
+					</h3>
+					<span>Verified</span>
+				  </div>
+				</summary>
+				<div>
+				  <dl>
+					<a href="/hospital/download/document/<%=a._id%>">
+					<div>
+					  <dt>Vaccine Document</dt>
+					  <dd>•••• 6890</dd>
+					</div>
+					</a>
+					<a href="/hospital/download/medicine/<%=a._id%>">
+					<div>
+					  <dt>College ID</dt>
+					  <dd><%=a.scholar_id%></dd>
+					</div>
+					</a>
+				  </dl>
+				</div>
+			  </details>	
+		<%}%>
+        </section>
+        <section>
+          <h1>On process</h1>
+		  <%for(var b of tobevusers){%>
+        <details>
+          <summary>
+            <div>
+              <span style="background-color: #f2dcbb;">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="799.924px" height="799.924px" viewBox="0 0 799.924 799.924" style="enable-background:new 0 0 799.924 799.924;"
+	 xml:space="preserve">
+<g>
+	<polygon points="454.913,203.1 419.44,244.835 409.704,217.012 413.876,203.1 399.963,203.1 386.051,203.1 390.225,217.012 
+		380.486,244.835 345.011,203.1 290.059,233.706 290.059,489.685 319.274,493.859 330.404,799.924 386.051,799.924 393.007,559.247 
+		399.963,559.247 406.919,559.247 413.876,799.924 469.519,799.924 480.649,493.859 509.864,489.685 509.864,233.706 	"/>
+	<path d="M399.963,194.738c40.819,0,73.979-32.715,74.727-73.362H325.233C325.982,162.023,359.142,194.738,399.963,194.738z"/>
+	<polygon points="514.144,38.008 399.958,0 285.78,38.008 325.435,57.821 325.435,114.709 474.489,114.709 474.489,57.822 	"/>
+</g>
+</svg>
+</span>
+              <h3>
+                <strong><%=b.name%></strong>
+                <small><%=b.institute%></small>
+              </h3>
+			  <form action="/hospital/update/<%=b._id%>" method="POST">
+              <span><button type="submit"  class="verify-btn">Verify</button></span>
+			</form>
+			</div>
+          </summary>
+          <div>
+            <dl>
+				<a href="/hospital/download/document/<%=b._id%>">
+              <div>
+                <dt>Vaccine Document</dt>
+                <dd>•••• 6890</dd>
+              </div>
+			</a>
+			  <a href="/hospital/download/medicine/<%=b._id%>">
+              <div>
+                <dt>College ID</dt>
+                <dd><%=b.scholar_id%></dd>
+              </div>
+			  </a>
+            </dl>
+          </div>
+        </details>
+		<%}%>
+        </section>
+		<section>
+			<h1>Not  Vaccinated</h1>
+			<%for(var c of inactiveusers){%>
+		  <details>
+			<summary>
+			  <div>
+				<span style="background-color: #f2dcbb;">
+				  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	   width="799.924px" height="799.924px" viewBox="0 0 799.924 799.924" style="enable-background:new 0 0 799.924 799.924;"
+	   xml:space="preserve">
+  <g>
+	  <polygon points="454.913,203.1 419.44,244.835 409.704,217.012 413.876,203.1 399.963,203.1 386.051,203.1 390.225,217.012 
+		  380.486,244.835 345.011,203.1 290.059,233.706 290.059,489.685 319.274,493.859 330.404,799.924 386.051,799.924 393.007,559.247 
+		  399.963,559.247 406.919,559.247 413.876,799.924 469.519,799.924 480.649,493.859 509.864,489.685 509.864,233.706 	"/>
+	  <path d="M399.963,194.738c40.819,0,73.979-32.715,74.727-73.362H325.233C325.982,162.023,359.142,194.738,399.963,194.738z"/>
+	  <polygon points="514.144,38.008 399.958,0 285.78,38.008 325.435,57.821 325.435,114.709 474.489,114.709 474.489,57.822 	"/>
+  </g>
+  </svg>
+  </span>
+  
+				<h3>
+				  <strong><%=c.name%></strong>
+				  <small><%=c.institute%></small>
+				</h3>
+			
+			  </div>
+			</summary>
+			<div>
+			  <dl>
+				<a href="/hospital/download/document/<%=c._id%>"><div>
+				  <dt>Vaccine Document</dt>
+				  <dd>•••• 6890</dd>
+				</div>
+			</a>
+			<a href="/hospital/download/medicine/<%=c._id%>">
+				<div>
+				  <dt>College ID</dt>
+				  <dd><%=c.scholar_id%></dd>
+				</div>
+			</a>
+			  </dl>
+			</div>
+		  </details>
+		  <%}%>
+		  </section>
+      </div>
+    </div>
+  </body>
+</html>
